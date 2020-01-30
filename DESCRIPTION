@@ -1,0 +1,15 @@
+Package: senadoRES
+Type: Package
+Title: Information about the senators of SPAIN. 
+Version: 0.1.0
+Author@R: person("Lluís", "Revilla Sancho", role = c("aut", "cre"))
+Description: Retrieve and parse information about the Spanish Congress. 
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Suggests: 
+    testthat
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.0.2
+Imports: 
+    xml2 (>= 1.2.2)
