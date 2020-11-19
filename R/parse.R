@@ -1,11 +1,144 @@
-# fi <- tempfile()
-# fi2 <- tempfile()
-# f2 <- "http://www.congreso.es/portal/page/portal/Congreso/Congreso/Diputados/BusqForm?_piref73_1333155_73_1333154_1333154.next_page=/wc/fichaDiputado?idDiputado=66&idLegislatura=14"
-# fs <- xml2::download_html(f2, file = fi2)
-# rs <- xml2::read_xml(fi, as_html = TRUE)
-# body <- xml2::xml_find_all(rs, "//body")
+tidy_partido <- function(y) {
+    names <- xml_name(xml_children(y))
+    txt <- xml_text(xml_children(y))
+    names(txt) <- names
+    txt
+}
+
+tidy_cabecera <- function(y) {
+    names <- xml_name(xml_children(y))
+    txt <- xml_text(xml_children(y))
+    names(txt) <- names
+    txt
+}
 
 
+#' Political groups and parties
+#'
+#' Retrieves the data for each term of the groups and political parties present
+#' @param legislatura A numeric value above 12 (No information prior to then).
+#' @return A matrix with all the information available.
+#' @export
+#' @examples
+#' grupos()
+grupos <- function(legislatura = 12){
+    stopifnot(legislatura >= 12)
+    x <- paste0("https://www.senado.es/web/ficopendataservlet?tipoFich=4&legis=", legislatura)
+
+    x <- xml_children(read_xml(download_xml(x)))
+    out <- lapply(x, function(y){
+        a <- sapply(xml_find_all(y, ".//partido"), tidy_partido)
+        a <- t(a)
+        b <- sapply(xml_find_all(y, ".//datosCabecera"), tidy_cabecera)
+        b <- t(b)
+        cbind(a, b[rep(1, nrow(a)), , drop = FALSE])
+    })
+    browser()
+    do.call(rbind, out)
+}
+
+#' Organization chart
+#'
+#' Retrieves the relationships between people responsible
+#' @return A `data.frame` with all the information available.
+#' @export
+#' @examples
+#' head(organigrama())
+organigrama <- function(){
+    x <- download_xml("https://www.senado.es/web/ficopendataservlet?tipoFich=5")
+    x <- read_xml(x)
+    s <- data.frame(
+        nivel = xml_text(xml_find_all(x, "//dependencia/nivel")),
+        nombreOficial = xml_text(xml_find_all(x, "//dependencia/nombreOficial")),
+        nombre = xml_text(xml_find_all(x, "//dependencia/nombre")),
+        codigo = xml_text(xml_find_all(x, "//dependencia/codigo")),
+        codigoPadre = xml_text(xml_find_all(x, "//dependencia/codigoPadre")),
+        tipoDependencia = xml_text(xml_find_all(x, "//dependencia/tipoDependencia")),
+        jefe = xml_text(xml_find_all(x, "//dependencia/jefe")),
+        dirCorreo = xml_text(xml_find_all(x, "//dependencia/dirCorreo")),
+        numTelefono = xml_text(xml_find_all(x, "//dependencia/numTelefono"))
+    )
+    s
+}
+
+
+#' Senators
+#'
+#' Past and current appointed members.
+#' @return A `data.frame` with the information available
+#' @export
+#' @examples
+#' head(senadores())
+senadores <- function() {
+    base_url <- "https://www.senado.es/web/ficopendataservlet?tipoFich=10"
+    if (is.null(legislatura)) {
+        x <- download_xml(base_url)
+    } else {
+        x <- download_xml(paste0(base_url, "&legis=", legislatura))
+    }
+    x <- read_xml(x)
+    s <- data.frame(nombre = xml_text(xml_find_all(x, "//senador/nombre")),
+    apellidos = xml_text(xml_find_all(x, "//senador/apellidos")),
+    legislatura = as.numeric(xml_text(xml_find_all(x, "//senador/legislatura"))),
+    ultCredencial = xml_text(xml_find_all(x, "//senador/ultCredencial")),
+    procedTipo = xml_text(xml_find_all(x, "//senador/procedTipo")),
+    procedLiteral = xml_text(xml_find_all(x, "//senador/procedLiteral")),
+    procedLugar = xml_text(xml_find_all(x, "//senador/procedLugar")),
+    grupoCod = xml_text(xml_find_all(x, "//senador/grupoCod")),
+    grupoSiglas = xml_text(xml_find_all(x, "//senador/grupoSiglas")),
+    grupoNombre = xml_text(xml_find_all(x, "//senador/grupoNombre")))
+    s$procedLugar <- gsub(pattern = ".+: ", "", s$procedLugar)
+    s$grupoCod <- gsub(pattern = ".+: ", "", s$grupoCod)
+    s$sex <- NA
+    s$sex[endsWith(s$procedLiteral, "a")] <- "female"
+    s$sex[endsWith(s$procedLiteral, "o")] <- "male"
+    s
+}
+
+
+#' Clean the data of the diputado
+#'
+#' @param url The url of the diputado you want to check.
+#' @return A vector with the information available.
+#' @export
+#' @examples
+#' a <- url_diputado(10, 13)
+#' tidy_diputado(a)
+#' @importFrom xml2 read_html
+#' @importFrom xml2 xml_find_all
+#' @importFrom xml2 xml_attr
+#' @importFrom xml2 xml_contents
+#' @importFrom xml2 xml_find_first
+#' @importFrom xml2 xml_length
+tidy_diputado <- function(url){
+    web_dip <- read_html(x = url, options = "NOERROR")
+    is_empty <- xml_find_all(web_dip, "//div[@class='SUBTITULO_CONTENIDO']")
+    if (xml_length(is_empty) != 0) {
+        stop("Empty page.")
+    }
+    x <- xml_find_all(web_dip, "//div[@id='datos_diputado']")
+    datos_diputado <- xml_children(x)
+    z <- xml_find_all(datos_diputado, "//meta[@name='Title']")
+    names <- xml_attr(z, "content")
+    group <- as.character(xml_contents(
+        xml_find_all(datos_diputado, "//p[@class='nombre_grupo']")))
+    curriculum <- xml_find_all(web_dip, "//div[@id='curriculum']")
+    legislatura <- as.character(
+        xml_contents(xml_find_first(curriculum, "//div[@class='principal']")))
+    legislatura <- strsplit(legislatura, "-| ", fixed = FALSE)[[1]]
+    legislatura <- as.numeric(as.roman(legislatura[1]))
+    begin_legislatura <- as.numeric(legislatura[4])
+    end_legislatura <- as.numeric(legislatura[5])
+    "//li/div[@class='dip_rojo']"
+
+    # Declaración de actividades
+    # Declaración de Bienes y Rentas
+    "//li[@class='regact_dip']/a[@href]"
+
+    res <- c(names, group, legislatura, begin_legislatura, end_legislatura)
+    names(res) <- c("Name", "Party", "Legislature", "Begin", "End")
+    res
+}
 
 # Resumen de las diferentes publicaciones...
 # http://www.congreso.es/portal/page/portal/Congreso/Congreso/Publicaciones/IndPub
