@@ -1,17 +1,23 @@
-Package: senadoRES
 Type: Package
-Title: Information about the senators of SPAIN. 
+Package: senadoRES
+Title: Information About the Senate of Spain
 Version: 0.1.0
-Author@R: person("Lluís", "Revilla Sancho", role = c("aut", "cre"))
-Description: Retrieve and parse information about the Spanish Congress. 
+Description: Retrieve and parse information about the Spanish
+    Congress.
 License: MIT + file LICENSE
-Encoding: UTF-8
-LazyData: true
-Suggests: 
-    testthat
-Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1
-Imports: 
-    xml2 (>= 1.2.2)
 URL: https://github.com/llrs/senadoRES
 BugReports: https://github.com/llrs/senadoRES/issues
+Imports: 
+    xml2 (>= 1.2.2)
+Suggests: 
+    testthat
+Authors@R: 
+    person(given = "Lluís",
+       family = "Revilla Sancho",
+       role = c("aut", "cre"),
+       email = "lluis.revilla@gmail.com",
+       comment = c(ORCID = "0000-0001-9747-2570"))
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1

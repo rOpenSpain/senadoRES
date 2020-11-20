@@ -1,3 +1,5 @@
+#' @importFrom xml2 xml_children
+#' @importFrom xml2 xml_name
 xml2matrix <- function(y) {
     names <- xml_name(xml_children(y))
     txt <- xml_text(xml_children(y))
@@ -40,17 +42,13 @@ grupos <- function(legislatura = 12){
 #'
 #' Past and current appointed members.
 #' @return A `data.frame` with the information available
+#' @importFrom xml2 read_xml
+#' @importFrom xml2 xml_text
 #' @export
 #' @examples
 #' head(senadores())
 senadores <- function() {
-    base_url <- "https://www.senado.es/web/ficopendataservlet?tipoFich=10"
-    if (is.null(legislatura)) {
-        x <- download_xml(base_url)
-    } else {
-        x <- download_xml(paste0(base_url, "&legis=", legislatura))
-    }
-    x <- read_xml(x)
+    x <- read_xml("https://www.senado.es/web/ficopendataservlet?tipoFich=10")
     s <- data.frame(nombre = xml_text(xml_find_all(x, "//senador/nombre")),
                     apellidos = xml_text(xml_find_all(x, "//senador/apellidos")),
                     legislatura = as.numeric(xml_text(xml_find_all(x, "//senador/legislatura"))),

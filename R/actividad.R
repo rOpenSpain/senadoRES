@@ -31,7 +31,7 @@ plenarias <- function(legislatura = 10) {
 
 
 helper <- function(x, path){
-    y <- xml2matrix(xml_find_all(i, paste0("./", path)))
+    y <- xml2matrix(xml_find_all(x, paste0("./", path)))
     if (!is.null(dim(y))) {
         colnames(y)[1] <- paste0(path, "_", colnames(y)[1])
     }
