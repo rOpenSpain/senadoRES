@@ -1,13 +1,18 @@
+
+#' @param A numeric id.
+#' @param legislatura A numeric value of the legislature
+#' @examples
+#' url_diputado(10, 13)
 url_diputado <- function(diputado, legislatura) {
 
-    if (!is.numeric(diputado)) {
+    if (!is_numeric(diputado)) {
         stop("diputado should be a numeric value", call. = FALSE)
     }
 
-    if (any(diputado > 350)) {
+    if (any(as.numeric(diputado) >= 350)) {
         stop("diputado cannot be higher than 349", call. = FALSE)
     }
-    if (!is.numeric(legislatura)) {
+    if (!is_numeric(legislatura)) {
         stop("diputado should be a numeric value", call. = FALSE)
     }
     n_diputado <- length(diputado)
