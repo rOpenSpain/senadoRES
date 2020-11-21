@@ -54,8 +54,7 @@ tidy_asunto <- function(asunto){
     l2 <- do.call(rbind, l)
     colnames(l2)[1] <- paste0("intervencion_", colnames(l2)[1])
     m <- xml2matrix(xml_find_all(asunto, "./*[not(self::intervencion)]"))
-    a <- cbind(m[rep(1, nrow(l2)), ,drop = FALSE], l2)
-    a
+    cbind(add_rows(m, l2), l2)
 }
 
 

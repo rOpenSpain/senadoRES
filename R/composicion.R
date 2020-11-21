@@ -30,7 +30,7 @@ grupos <- function(legislatura = 12){
     out <- lapply(x, function(y){
         partidos <- sapply(xml_find_all(y, ".//partido"), xml2matrix)
         grupo <- sapply(xml_find_all(y, ".//datosCabecera"), xml2matrix)
-        cbind(partidos, grupo[rep(1, nrow(partidos)), , drop = FALSE])
+        cbind(partidos, add_rows(grupo, partidos))
     })
     browser()
     do.call(rbind, out)

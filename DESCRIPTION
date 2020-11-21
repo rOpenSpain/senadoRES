@@ -8,7 +8,8 @@ License: MIT + file LICENSE
 URL: https://github.com/llrs/senadoRES
 BugReports: https://github.com/llrs/senadoRES/issues
 Imports: 
-    xml2 (>= 1.2.2)
+    xml2 (>= 1.2.2),
+    httr (>= 1.4.2)
 Suggests: 
     testthat
 Authors@R: 
