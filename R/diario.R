@@ -1,7 +1,24 @@
+#' Document CVE
+#'
+#' Code needd to retrieve data about a document.
+#' @inheritParams sumario_cve
+#' @param number A numeric value of
+#' @family generators of CVE
+#' @return A character vector of a valid CVE.
+#' @export
+#' @examples
+#' document_cve(14, 1, 1)
+document_cve <- function(legislatura, sesion, number) {
+    if (!is_numeric(number) && !as.numeric(number) > 0) {
+        stop("Number should be a numeric value above 0", call. = FALSE)
+    }
+    paste(document_nbo(legislatura, sesion, "D"), number, sep = "_")
+}
+
 
 document_nbo <- function(legislatura, sesion, type = "S") {
 
-    type <- match.arg(type, c("T", "S"))
+    type <- match.arg(type, c("T", "S", "D"))
     if (!is_numeric(legislatura) || legislatura < 0) {
         stop("legislatura must be a numeric value equal or above 0.",
              call. = FALSE)
@@ -19,10 +36,11 @@ document_nbo <- function(legislatura, sesion, type = "S") {
 #' @param legislatura A numeric value. Constituent was 0.
 #' @param sesion A numeric value above 0.
 #' @return A character id of the code for the summary of that session.
+#' @family generators of CVE
 #' @export
 #' @examples
-#' sumario_nbo(14, 1)
-sumario_nbo <- function(legislatura, sesion) {
+#' sumario_cve(14, 1)
+sumario_cve <- function(legislatura, sesion) {
     document_nbo(legislatura, sesion, "S")
 }
 
@@ -30,12 +48,13 @@ sumario_nbo <- function(legislatura, sesion) {
 #'
 #' Creates the code of the summary of a session of the senate with the
 #' documents that got talk.
-#' @inheritParams sumario_nbo
+#' @inheritParams sumario_cve
 #' @return Summary of the session plus information about the documents discussed.
+#' @family generators of CVE
 #' @export
 #' @examples
-#' boletin_bno(14, 1)
-boletin_nbo <- function(legislatura, sesion) {
+#' boletin_cve(14, 1)
+boletin_cve <- function(legislatura, sesion) {
     document_nbo(legislatura, sesion, type = "T")
 }
 
@@ -44,18 +63,19 @@ boletin_nbo <- function(legislatura, sesion) {
 #' Returns the summary of a session in a tidy way.
 #' If multiple autors are involved in a disposicion and multiple documents they
 #' get mixed.
-#' @param id The character of the CVE of the document.
+#' @param cve The character of the CVE of the document.
 #' @return A data.frame with a summary of the session, date, documents, authors.
+#' @family types of documents
 #' @export
 #' @examples
-#' sumario_id <- sumario_nbo(14, 1)
-#' s <- sumario(sumario_id)
-sumario <- function(id) {
-    check_code(id)
-    id <- fix_sumario_code(id) # Fix till they fix on the website
+#' sumario_cve <- sumario_nbo(14, 1)
+#' head(sumario(sumario_cve))
+sumario <- function(cve) {
+    check_code(cve)
+    cve <- fix_sumario_code(cve) # Fix till they fix on the website
     # XML of sumarios are on the pdf folder.
-    url <- paste0("/legis", id2legis(id), "/publicaciones/pdf/senado/bocg/",
-                  id, ".XML")
+    url <- paste0("/legis", id2legis(cve), "/publicaciones/pdf/senado/bocg/",
+                  cve, ".XML")
     base_url <- force(BASE_URL)
     url <- httr::modify_url(base_url, path = url)
     xml <- get_xml(url)
@@ -79,16 +99,17 @@ sumario <- function(id) {
 
 #' Boletin
 #'
-#' @param id A character with the boletin CVE.
+#' @param cve A character with the boletin CVE.
+#' @export
 #' @return A data.frame
 #' @examples
-#' boletin_id <- boletin_nbo(14, 2)
-#' boletin(boletin_id)
-boletin <- function(id) {
-    check_code(id)
+#' boletin_cve <- boletin_cve(14, 2)
+#' boletin(boletin_cve)
+boletin <- function(cve) {
+    check_code(cve)
     # For some reason the xml files of the sumarios are on the pdf folder...
-    url <- paste0(force(BASE_URL), "/legis", id2legis(id), "/publicaciones/xml/senado/bocg/",
-                  id, ".XML")
+    url <- paste0(force(BASE_URL), "/legis", id2legis(cve), "/publicaciones/xml/senado/bocg/",
+                  cve, ".XML")
     xml <- get_xml(url)
     cabecera <- xml2matrix2(xml_children(xml_find_all(xml, "./cabecera"))[1:6])
     disposiciones <- xml_find_all(xml, "./texto_boletin/disposicion")
@@ -102,14 +123,15 @@ boletin <- function(id) {
     out
 }
 
-#' A
+#' A document
+#' @family types of documents
 #' @examples
 #' document_cve <- "BOCG_D_14_110_901"
 #' documento(document_cve)
-documento <- function(id) {
-    check_code(id)
+documento <- function(cve) {
+    check_code(cve)
     url <- paste0("https://www.senado.es/legis",
-                  id2legis(id), "/publicaciones/xml/senado/bocg/", id, ".XML")
+                  id2legis(cve), "/publicaciones/xml/senado/bocg/", cve, ".XML")
     xml <- read_xml(url)
     cabecera <- xml2matrix2(xml_children(xml_find_all(xml, "./cabecera"))[1:9])
     disposicion <- tidy_long_disposicion(xml_children(xml_child(xml, "texto_boletin")))
@@ -119,6 +141,32 @@ documento <- function(id) {
     out[, numerics] <- lapply(out[, numerics], as.numeric)
     out
 }
+
+#' @examples
+#' document_cve <- "BOCG_D_14_110_901"
+#' d <- documento(document_cve)
+#' head(hyper_documento(14, d$NUMEXP))
+hyper_documento <- function(legislatura, numex) {
+    if (!is_numeric(legislatura) && !length(legislatura) == 1) {
+        stop("Legislatura should be a numeric value", call. = FALSE)
+    }
+
+    if (length(numex) != 1 && !is.character(numex)) {
+        stop("numex should be like '661/000073'", call. = FALSE)
+    }
+
+    ids <- strsplit(numex, fixed = TRUE, "/")[[1]]
+    url <- paste0("https://www.senado.es/web/ficopendataservlet?legis=",
+                  legislatura, "&tipoFich=3&tipoEx=", ids[1],
+                  "&numEx=", ids[2])
+    xml <- read_xml(url)
+    xml2matrix2(xml_find_all(xml, "//tramitacion"))
+    tramites <- xml_find_all(xml, "/fichaExpediente/tramitaciones/tramitacion")
+    tramites <- lapply(tramites, xml2matrix)
+    warning("On construction: will need to use databases")
+    tramites <- Reduce(rbind, tramites)
+}
+
 
 tidy_apartado <- function(x) {
     subapartados <- xml_children(xml_find_all(x, ".//subapartado"))
@@ -195,10 +243,10 @@ check_code <- function(id) {
         stop("Missing the session number.", call. = FALSE)
     }
 
-    if (ids[2] == "D" & length(ids) < 4) {
+    if (ids[2] == "D" & length(ids) < 5) {
         stop("Missing the document reference", call. = FALSE)
     }
-    if (ids[2] == "D" & length(ids) == 4  & !is_numeric(ids[4])) {
+    if (ids[2] == "D" & length(ids) == 5  & !is_numeric(ids[5])) {
         stop("Document reference should be numeric", call. = FALSE)
     }
 
