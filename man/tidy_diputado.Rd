@@ -4,10 +4,12 @@
 \alias{tidy_diputado}
 \title{Clean the data of the diputado}
 \usage{
-tidy_diputado(url)
+tidy_diputado(diputado, legislatura)
 }
 \arguments{
-\item{url}{The url of the diputado you want to check.}
+\item{legislatura}{A numeric value of the legislature}
+
+\item{A}{numeric id.}
 }
 \value{
 A vector with the information available.

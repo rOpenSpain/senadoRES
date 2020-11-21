@@ -4,12 +4,18 @@
 \alias{boletin}
 \title{Boletin}
 \usage{
-boletin(id)
+boletin(cve)
+}
+\arguments{
+\item{cve}{A character with the boletin CVE.}
+}
+\value{
+A data.frame
 }
 \description{
 Boletin
 }
 \examples{
-boletin_id <- boletin_nbo(14, 2)
-boletin(boletin_id)
+boletin_cve <- boletin_cve(14, 2)
+boletin(boletin_cve)
 }

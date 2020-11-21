@@ -4,13 +4,13 @@
 \alias{sumario}
 \title{Retrieve the document of sumario}
 \usage{
-sumario(id)
+sumario(cve)
 }
 \arguments{
-\item{id}{The character of the CVE of the document.}
+\item{cve}{The character of the CVE of the document.}
 }
 \value{
-A matrix with a summary of the session, date, documents, authors.
+A data.frame with a summary of the session, date, documents, authors.
 }
 \description{
 Returns the summary of a session in a tidy way.
@@ -18,6 +18,11 @@ If multiple autors are involved in a disposicion and multiple documents they
 get mixed.
 }
 \examples{
-sumario_id <- sumario_nbo(14, 1)
-s <- sumario(sumario_id)
+sumario_cve <- sumario_nbo(14, 1)
+head(sumario(sumario_cve))
 }
+\seealso{
+Other types of documents: 
+\code{\link{documento}()}
+}
+\concept{types of documents}
