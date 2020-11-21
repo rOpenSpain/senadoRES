@@ -1,8 +1,8 @@
 #' Clean the data of the diputado
 #'
-#' @param url The url of the diputado you want to check.
+#' @param A numeric id.
+#' @param legislatura A numeric value of the legislature
 #' @return A vector with the information available.
-#' @export
 #' @examples
 #' a <- url_diputado(10, 13)
 #' tidy_diputado(a)
@@ -13,7 +13,8 @@
 #' @importFrom xml2 xml_find_first
 #' @importFrom xml2 xml_length
 #' @importFrom utils as.roman
-tidy_diputado <- function(url){
+tidy_diputado <- function(diputado, legislatura){
+    url <- url_diputado(diputado, legislatura)
     web_dip <- read_html(x = url, options = "NOERROR")
     is_empty <- xml_find_all(web_dip, "//div[@class='SUBTITULO_CONTENIDO']")
     if (xml_length(is_empty) != 0) {
