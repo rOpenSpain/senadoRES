@@ -18,7 +18,9 @@ add_rows <- function(x, y) {
         return(matrix(nrow = nrow(y)))
     }
 
-    if (!is.null(dim(y))) {
+    if (is.numeric(y)) {
+        x[rep(1, y), , drop = FALSE]
+    } else if (!is.null(dim(y))) {
         x[rep(1, nrow(y)), , drop = FALSE]
     } else {
         x
@@ -32,6 +34,16 @@ fix_sumario_code <- function(id) {
     gsub("_S_", "_B_", id)
 }
 
+
+change_type_document <- function(id, to) {
+    to <- toupper(to)
+    match.arg(to, c("B", "S", "T", "D")) # B is not an official letter
+    ids <- strsplit(id, "_", fixed = TRUE)
+    vapply(ids, function(x){
+        x[2] <- to
+        paste(x, collapse = "_")
+        }, FUN.VALUE = character(1L))
+}
 
 merger <- function(x, y) {
     z <- merge(x, y, all = TRUE, sort = FALSE)
