@@ -2,7 +2,7 @@
 % Please edit documentation in R/diario.R
 \name{sumario}
 \alias{sumario}
-\title{Retrieve the document of sumario}
+\title{Retrieve the document of \emph{sumario}}
 \usage{
 sumario(cve)
 }
@@ -18,8 +18,8 @@ If multiple autors are involved in a disposicion and multiple documents they
 get mixed.
 }
 \examples{
-sumario_cve <- sumario_nbo(14, 1)
-head(sumario(sumario_cve))
+sumario_CVE <- sumario_cve(14, 3)
+head(sumario(sumario_CVE))
 }
 \seealso{
 Other types of documents: 

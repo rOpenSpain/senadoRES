@@ -2,9 +2,11 @@
 
 export(boletin)
 export(boletin_cve)
+export(boletin_sumario)
 export(check_code)
 export(detalles)
 export(document_cve)
+export(documento)
 export(grupos)
 export(organigrama)
 export(plenarias)

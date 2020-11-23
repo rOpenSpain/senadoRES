@@ -7,9 +7,9 @@
 tidy_diputado(diputado, legislatura)
 }
 \arguments{
-\item{legislatura}{A numeric value of the legislature}
+\item{diputado}{A numeric id.}
 
-\item{A}{numeric id.}
+\item{legislatura}{A numeric value of the legislature}
 }
 \value{
 A vector with the information available.

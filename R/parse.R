@@ -1,6 +1,6 @@
 #' Clean the data of the diputado
 #'
-#' @param A numeric id.
+#' @param diputado A numeric id.
 #' @param legislatura A numeric value of the legislature
 #' @return A vector with the information available.
 #' @examples

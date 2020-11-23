@@ -6,6 +6,9 @@
 \usage{
 documento(cve)
 }
+\arguments{
+\item{cve}{A character with a document CVE.}
+}
 \description{
 A document
 }
@@ -14,6 +17,8 @@ document_cve <- "BOCG_D_14_110_901"
 documento(document_cve)
 }
 \seealso{
+\code{\link[=document_cve]{document_cve()}}
+
 Other types of documents: 
 \code{\link{sumario}()}
 }
