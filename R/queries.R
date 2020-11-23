@@ -19,5 +19,10 @@ get_xml <- function(query) {
     if (http_type(response) != "text/xml") {
         stop("API did not find the requested document.", call. = FALSE)
     }
-    content(response, encoding = "Latin1")
+    # Encoding found via the browser
+    # BOCG_B_14_110.XML has windows-1252
+    # BOCG_T_14_3.XML has ISO-8859-15
+    # BOCG_T_14_110.XML has ISO-8859-15
+    # Apparently ISO-8859-15 includes the windows-1252
+    content(response, encoding = "ISO-8859-15")
 }
