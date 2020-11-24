@@ -49,7 +49,7 @@ library("ggplot2")
 
 We can see the increase of females on the Senate:
 
-```{r senadoras}
+```{r senadoras, echo = FALSE}
 ts <- senadores()
 ts %>%
     group_by(legislatura) %>%
@@ -68,16 +68,22 @@ ts %>%
     theme_minimal() +
     labs(title = "Ratio of women", x  = "Legislatura", y = "% of women") +
     guides(col = FALSE, shape = FALSE)
-
-
-ts %>% 
-    group_by(legislatura) %>%
-    count(grupoNombre) %>% 
-    ggplot() +
-    geom_point(aes(legislatura, forcats::fct_reorder2(grupoNombre, legislatura != 0, legislatura, .fun = sum))) +
-    scale_x_continuous(breaks = seq_len(15)) +
-    theme_minimal() +
-    labs(title = "Grupos políticos", x  = "Legislatura", y = element_blank())
 ```
 
-Or the change of the parties along the years
+Or the change of the parties along the years:
+
+```{r grupos, echo=FALSE}
+ts %>% 
+  group_by(legislatura) %>%
+  count(grupoNombre) %>% 
+  mutate(grupoNombre = case_when(legislatura == "4" ~ gsub("^G", "GP", grupoNombre),
+                                 TRUE ~ grupoNombre)) %>% # Fix an obvious error
+  ggplot() +
+  geom_tile(aes(legislatura, 
+                forcats::fct_reorder2(grupoNombre, legislatura != 0, -legislatura, .fun = sum)),
+            fill = "black") +
+  scale_x_continuous(breaks = seq_len(15)) +
+  theme_minimal() +
+  labs(title = "Grupos políticos", x  = "Legislatura", y = element_blank())
+```
+

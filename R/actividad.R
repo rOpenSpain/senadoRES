@@ -70,13 +70,14 @@ tidy_asunto <- function(asunto){
 detalles <- function(url) {
     x <- read_xml(url)
     meta <- xml_find_all(x, "/sesion/update|fecha|legis")
-    values <- xml_text(meta)
-    names(values) <- xml_name(meta)
+    meta <- xml2matrix2(meta)
     asuntos <- xml_find_all(x, "/sesion/asunto")
     l <- lapply(asuntos, tidy_asunto)
+    browser()
     do.call(rbind, l)
 }
 # Comisiones y Ponencias
 # Publicaciones Oficiales
 # Iniciativas parlamentarias Legislativas
 # Iniciativas parlamentarias de control
+# TODO: continue here with actividades, fix detalles (do not forget to get data about the people.)
