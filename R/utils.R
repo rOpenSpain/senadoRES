@@ -13,12 +13,35 @@ id2type <- function(x){
 
 BASE_URL <- "https://www.senado.es"
 
+#' @importFrom xml2 xml_children
+#' @importFrom xml2 xml_name
+xml2matrix <- function(y) {
+    names <- xml_name(xml_children(y))
+    txt <- xml_text(xml_children(y))
+    names(txt) <- names
+    t(txt)
+}
+
+xml2matrix2 <- function(y) {
+    names <- xml_name(y)
+    txt <- xml_text(y)
+    names(txt) <- names
+    t(txt)
+}
+
+xml2ch <- function(y) {
+    txt <- xml_text(y)
+    names(txt) <- xml_name(y)
+    txt
+}
+
 add_rows <- function(x, y) {
     if (length(x) == 0) {
         return(matrix(nrow = nrow(y)))
     }
-
-    if (is.numeric(y)) {
+    if (all(is.na(y))) {
+        x[rep(1, length(y)), , drop = FALSE]
+    } else if (is.numeric(y)) {
         x[rep(1, y), , drop = FALSE]
     } else if (!is.null(dim(y))) {
         x[rep(1, nrow(y)), , drop = FALSE]

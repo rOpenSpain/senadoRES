@@ -1,19 +1,3 @@
-#' @importFrom xml2 xml_children
-#' @importFrom xml2 xml_name
-xml2matrix <- function(y) {
-    names <- xml_name(xml_children(y))
-    txt <- xml_text(xml_children(y))
-    names(txt) <- names
-    t(txt)
-}
-
-xml2matrix2 <- function(y) {
-    names <- xml_name(y)
-    txt <- xml_text(y)
-    names(txt) <- names
-    t(txt)
-}
-
 #' Political groups and parties
 #'
 #' Retrieves the data for each term of the groups and political parties present
