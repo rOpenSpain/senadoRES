@@ -6,18 +6,23 @@
 #' @export
 #' @examples
 #' grupos()
-grupos <- function(legislatura = 12){
+grupos <- function(legislatura){
     stopifnot(legislatura >= 12)
     x <- paste0("https://www.senado.es/web/ficopendataservlet?tipoFich=4&legis=", legislatura)
 
     x <- xml_children(read_xml(x))
     out <- lapply(x, function(y){
-        partidos <- sapply(xml_find_all(y, ".//partido"), xml2matrix)
-        grupo <- sapply(xml_find_all(y, ".//datosCabecera"), xml2matrix)
-        cbind(partidos, add_rows(grupo, partidos))
+        partidos <- lapply(xml_find_all(y, ".//partido"), xml2matrix)
+        partidos <- do.call(rbind, partidos)
+        grupo <- xml2matrix(xml_find_all(y, ".//datosCabecera"))
+        cbind(add_rows(grupo, partidos), partidos)
     })
-    browser()
-    do.call(rbind, out)
+    out <- do.call(rbind, out)
+    out <- as.data.frame(out)
+    numerics <- c("total", "totalElectos", "totalDesignados",
+                  "partidoTotalElectos", "partidoTotalDesignados")
+    out[, numerics] <- lapply(out[, numerics], as.numeric)
+    out
 }
 
 
