@@ -36,17 +36,19 @@ xml2ch <- function(y) {
 }
 
 add_rows <- function(x, y) {
+    if (all(is.na(y))) {
+        y <- length(y)
+    } else if (is.numeric(y)) {
+        y <- y
+    } else if (!is.null(dim(y))) {
+        y <- nrow(y)
+    }
+
+
     if (length(x) == 0) {
         return(matrix(nrow = nrow(y)))
-    }
-    if (all(is.na(y))) {
-        x[rep(1, length(y)), , drop = FALSE]
-    } else if (is.numeric(y)) {
+    } else{
         x[rep(1, y), , drop = FALSE]
-    } else if (!is.null(dim(y))) {
-        x[rep(1, nrow(y)), , drop = FALSE]
-    } else {
-        x
     }
 }
 
