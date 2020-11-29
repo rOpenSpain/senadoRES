@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
 <!-- badges: end -->
 
 The goal of senadoRES is to provide information about the [Senate of Spain](https://en.wikipedia.org/wiki/Senate_of_Spain).
-It uses the [Open Data](https://www.senado.es/web/relacionesciudadanos/datosabiertos/catalogodatos/index.html) available.
+It uses the [Open Data](https://www.senado.es/web/relacionesciudadanos/datosabiertos/catalogodatos/index.html) available and some other XML files I found while exploring the website.
 
 ## Installation
 
@@ -39,7 +39,7 @@ remotes::install_github("llrs/senadoRES")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+To make it easier to work and show some data I'll use some packages:
 
 ```{r example}
 library("senadoRES")
@@ -47,10 +47,19 @@ library("dplyr")
 library("ggplot2")
 ```
 
-We can see the increase of females on the Senate:
+### Senadores
 
-```{r senadoras, echo = FALSE}
+This function return the members of the Senate:
+
+```{r senadores}
 ts <- senadores()
+head(ts)
+```
+
+
+We can see the increase of females on the Senate along the legislatures:
+
+```{r senadoras}
 ts %>%
     group_by(legislatura) %>%
     count(sex) %>%
@@ -70,9 +79,10 @@ ts %>%
     guides(col = FALSE, shape = FALSE)
 ```
 
+
 Or the change of the parties along the years:
 
-```{r grupos, echo=FALSE}
+```{r grupos}
 ts %>% 
   group_by(legislatura) %>%
   count(grupoNombre) %>% 
