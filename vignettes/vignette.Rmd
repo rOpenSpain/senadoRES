@@ -1,0 +1,176 @@
+---
+title: "Getting Started"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting Started}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library("senadoRES")
+library("dplyr")
+library("ggplot2")
+```
+
+### *Senadores*
+
+This function return the members of the Senate:
+
+```{r senadores}
+ts <- senadores()
+head(ts)
+```
+
+We can see the increase of females on the Senate along the legislatures:
+
+```{r senadoras}
+ts %>%
+    group_by(legislatura) %>%
+    count(sex) %>%
+    mutate(total = sum(n)) %>%
+    filter(!is.na(sex)) %>%
+    mutate(ratio = n/total) %>%
+    filter(sex != "male") %>% 
+    ggplot() +
+    geom_point(aes(legislatura, ratio, col = sex, shape = sex), size = 5) +
+    geom_hline(yintercept = 0.5, linetype = 2, col = "red") +
+    scale_x_continuous(breaks = seq_len(15)) +
+    scale_y_continuous(labels = scales::percent_format(accuracy = 1), 
+                       breaks = seq(from = 0, to = 0.7, by = .1),
+                       expand = expansion(add = c(0, 0.01)), limits = c(0, NA)) +
+    theme_minimal() +
+    labs(title = "Ratio of women", x  = "Legislatura", y = "% of women") +
+    guides(col = FALSE, shape = FALSE)
+```
+
+Or the change of the parties along the years:
+
+```{r grupos}
+ts %>% 
+  group_by(legislatura) %>%
+  count(grupoNombre) %>% 
+  mutate(grupoNombre = case_when(legislatura == "4" ~ gsub("^G", "GP", grupoNombre),
+                                 TRUE ~ grupoNombre)) %>% # Fix an obvious error
+  ggplot() +
+  geom_tile(aes(legislatura, 
+                forcats::fct_reorder2(grupoNombre, legislatura != 0, -legislatura, .fun = sum)),
+            fill = "black") +
+  scale_x_continuous(breaks = seq_len(15)) +
+  theme_minimal() +
+  labs(title = "Grupos políticos", x  = "Legislatura", y = element_blank())
+```
+
+You can also query more information about what did each one do with senador
+
+```{r}
+tidy_diputado(10, 10)
+```
+
+### Documents
+
+The Senate has its own publication with different types of documents. The three main documents are a document, the *boletin* and the *sumario*. All recognized documents have a code named CVE. You can create the CVE with:
+
+```{r cve}
+document_cve(legislatura = 14, sesion = 1, number = 1)
+boletin_cve(legislatura = 14, sesion = 1)
+sumario_cve(legislatura = 14, sesion = 1)
+```
+
+If you found a CVE and you aren't sure if a code is valid with `check_code()`. Once we have a valid CVE we can retrieve the information about the document:
+
+```{r boletin}
+boletin_cve <- boletin_cve(14, 3)
+b <-  boletin(boletin_cve)
+head(b[, c(1:14, 16)])
+```
+
+Here I omitted a column because the functions also return the text explaining the document and it is a bit verbose to show.
+
+```{r sumario}
+sumario_cve <- sumario_cve(legislatura = 14, sesion = 1)
+s <- sumario(sumario_cve)
+head(s)
+```
+
+Both of them refer to a session, but they do not provide the same information. To make it easier to retrieve all information possible from a session you can do this:
+
+```{r boletin_sumario}
+bs <- boletin_sumario(sumario_cve(legislatura = 14, sesion = 1))
+head(bs)
+```
+
+If you are interested in a single document you can then use:
+
+```{r document}
+document_cve <- "BOCG_D_14_3_15"
+d <- documento(document_cve)
+d[, 1:15]
+```
+
+### Plenarias
+
+As you need to know how many plenary sessions were done you can check them with:
+
+```{r plenarias}
+plenarias(12)
+```
+
+Note that this information is only available from the X legislature onward
+
+```{r}
+s <- lapply(10:14, plenarias)
+sessions <- do.call(rbind, s)
+ggplot(sessions) +
+    stat_sum(aes(sesionLegislatura, sesionHoraInicio, 
+                 fill = after_stat(n), size = 1), geom = "tile") +
+    # geom_tile(aes(sesionLegislatura, sesionHoraInicio, 
+                  # fill = after_stat(n))) +
+    guides(size = FALSE) +
+    theme_minimal() +
+    labs(title = "Hour of sessions", x = "Legislature", y = "Starting hour",
+         fill = "Sessions") +
+    scale_y_continuous(breaks = 1:19)
+    theme(panel.grid.minor.y )
+```
+
+So most of the times they meet at the afternoon.
+
+If you want more detailed information of each session you can use the fichUrlDetalleSesion details:
+
+```{r detalles}
+details <- detalles(paste0("https://www.senado.es", sessions$fichUrlDetalleSesion[1]))
+```
+
+This will help you know who talked, how long about which topics and which documents got referenced.
+
+### Grupos
+
+If you are interested on the political groups composition at certain legislature:
+
+```{r grupos}
+g <- grupos(12)
+head(g)
+```
+
+Note that the record in this case starts from the XII legislature.
+
+### Organization chart
+
+If you want to know who works where and their position you can check it out with:
+
+```{r organigrama}
+head(organigrama())
+```
+
+Unfortunately this doesn't go back in time, I think it only shows the current
+
