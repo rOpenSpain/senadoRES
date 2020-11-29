@@ -4,8 +4,7 @@
 #' @param legislatura A numeric value of the legislature
 #' @return A vector with the information available.
 #' @examples
-#' a <- url_diputado(10, 13)
-#' tidy_diputado(a)
+#' tidy_diputado(10, 13)
 #' @importFrom xml2 read_html
 #' @importFrom xml2 xml_find_all
 #' @importFrom xml2 xml_attr
@@ -13,7 +12,7 @@
 #' @importFrom xml2 xml_find_first
 #' @importFrom xml2 xml_length
 #' @importFrom utils as.roman
-tidy_diputado <- function(diputado, legislatura){
+tidy_diputado <- function(legislatura, diputado){
     url <- url_diputado(diputado, legislatura)
     web_dip <- read_html(x = url, options = "NOERROR")
     is_empty <- xml_find_all(web_dip, "//div[@class='SUBTITULO_CONTENIDO']")
