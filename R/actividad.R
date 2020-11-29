@@ -8,8 +8,8 @@
 #' @inheritParams grupos
 #' @return A data.frame with the information available.
 #' @examples
-#' head(plenarias())
-plenarias <- function(legislatura = 10) {
+#' head(plenarias(10))
+plenarias <- function(legislatura) {
     stopifnot(legislatura >= 10)
     base_url <- "https://www.senado.es/web/ficopendataservlet?tipoFich=14&legis="
     url <- paste0(base_url, legislatura)
@@ -30,34 +30,50 @@ plenarias <- function(legislatura = 10) {
 }
 
 
-helper <- function(x, path){
-    y <- xml2matrix(xml_find_all(x, paste0("./", path)))
-    if (!is.null(dim(y))) {
-        colnames(y)[1] <- paste0(path, "_", colnames(y)[1])
+helper <- function(x, path) {
+    y <- xml2ch(xml_children(xml_find_all(x, paste0("./", path))))
+    if (!is.null(y) && length(y) != 0) {
+        names(y) <- paste0(path, "_", names(y))
+        y
     }
-    y
 }
 
-tidy_asunto <- function(asunto){
+tidy_asunto <- function(asunto) {
+    punto <- xml_find_all(asunto, "./punto")
+    if (length(punto) != 0) {
+        punto <- tidy_punto(xml_children(punto))
+    } else {
+        punto <- NA
+    }
     int <- xml_find_all(asunto, "./intervencion")
-    l <- lapply(int, function(i) {
-        orador <- helper(i, "orador")
-        fase <- helper(i, "fase")
-        cargo <- helper(i, "cargo")
-        grupo <- helper(i, "grupo")
-
-        data <- xml2matrix2(xml_find_all(i,
-                                         "./id|asunto|hora_inicio|offset_inicio|hora_fin|duracion_mseg|duracion_texto|path1|path0"))
-        cbind(data, orador, fase, cargo, grupo)
-    })
-
-    l2 <- do.call(rbind, l)
-    colnames(l2)[1] <- paste0("intervencion_", colnames(l2)[1])
-    m <- xml2matrix(xml_find_all(asunto, "./*[not(self::intervencion)]"))
-    cbind(add_rows(m, l2), l2)
+    if (length(int) != 0) {
+        l <- lapply(int, tidy_intervencion)
+        l2 <- Reduce(merger, l)
+    } else {
+        l2 <- NA
+    }
+    m <- xml2matrix(xml_find_all(asunto, "./*[not(self::intervencion|self::punto)]"))
+    cbind.data.frame(add_rows(m, l2), l2, punto)
 }
 
+tidy_punto <- function(x) {
+    punto <- xml2matrix2(x)
+    colnames(punto) <- paste0("punto_", colnames(punto))
+    punto
+}
 
+tidy_intervencion <- function(x) {
+
+    orador <- helper(x, "orador")
+    fase <- helper(x, "fase")
+    cargo <- helper(x, "cargo")
+    grupo <- helper(x, "grupo")
+    path <- "./id|asunto|hora_inicio|offset_inicio|hora_fin|duracion_mseg|duracion_texto|path1|path0"
+    data <- xml2ch(xml_find_all(x, path))
+    out <- c(data, orador, fase, cargo, grupo)
+    names(out)[1] <- paste0("intervencion_", names(out[1]))
+    as.data.frame(t(as.matrix(out)))
+}
 
 #' Check individual session
 #' @param url A url path to a session.
@@ -72,8 +88,8 @@ detalles <- function(url) {
     meta <- xml_find_all(x, "/sesion/update|fecha|legis")
     meta <- xml2matrix2(meta)
     asuntos <- xml_find_all(x, "/sesion/asunto")
-    l <- lapply(asuntos, tidy_asunto)
     browser()
+    l <- lapply(asuntos, tidy_asunto)
     do.call(rbind, l)
 }
 # Comisiones y Ponencias
