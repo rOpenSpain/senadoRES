@@ -45,7 +45,7 @@ tidy_apartado <- function(x) {
     a <- lapply(disposiciones, tidy_disposicion)
     b <- Reduce(merger, a)
     head <- xml2matrix2(xml_find_all(x, ".//apNumRomano|apDescripcion"))
-    cbind.data.frame(add_rows(head, a), add_rows(apartado, a), b)
+    cbind.data.frame(add_rows(head, b), add_rows(apartado, b), b)
 }
 
 tidy_disposicion <- function(x) {
