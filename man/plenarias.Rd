@@ -4,7 +4,7 @@
 \alias{plenarias}
 \title{Plenary sessions}
 \usage{
-plenarias(legislatura = 10)
+plenarias(legislatura)
 }
 \arguments{
 \item{legislatura}{A numeric value above 12 (No information prior to then).}
@@ -16,5 +16,5 @@ A data.frame with the information available.
 How many session have been
 }
 \examples{
-head(plenarias())
+head(plenarias(10))
 }

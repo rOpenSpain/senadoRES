@@ -4,12 +4,12 @@
 \alias{tidy_diputado}
 \title{Clean the data of the diputado}
 \usage{
-tidy_diputado(diputado, legislatura)
+tidy_diputado(legislatura, diputado)
 }
 \arguments{
-\item{diputado}{A numeric id.}
-
 \item{legislatura}{A numeric value of the legislature}
+
+\item{diputado}{A numeric id.}
 }
 \value{
 A vector with the information available.
@@ -18,6 +18,5 @@ A vector with the information available.
 Clean the data of the diputado
 }
 \examples{
-a <- url_diputado(10, 13)
-tidy_diputado(a)
+tidy_diputado(10, 13)
 }

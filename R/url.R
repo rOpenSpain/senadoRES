@@ -13,14 +13,15 @@ url_diputado <- function(diputado, legislatura) {
         stop("diputado cannot be higher than 349", call. = FALSE)
     }
     if (!is_numeric(legislatura)) {
-        stop("diputado should be a numeric value", call. = FALSE)
+        stop("legislatura should be a numeric value", call. = FALSE)
     }
     n_diputado <- length(diputado)
     n_legislatura <- length(legislatura)
-    if (n_diputado > 1 || n_legislatura > 1) {
-        length_total <- n_diputado*n_legislatura
-        diputado <- rep(diputado, length.out = length_total)
-        legislatura <- rep(legislatura, length.out = length_total)
+    # Get all combinations
+    if (n_diputado > 1 || n_legislatura > 1 && n_diputado != n_legislatura) {
+        a <- expand.grid(diputado, legislatura)
+        diputado <- a[, 1]
+        legislatura <- a[, 1]
     }
   paste0("http://www.congreso.es/portal/page/portal/Congreso/Congreso/",
   "Diputados/BusqForm?_piref73_1333155_73_1333154_1333154.next_page=",

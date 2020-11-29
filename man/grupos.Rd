@@ -4,7 +4,7 @@
 \alias{grupos}
 \title{Political groups and parties}
 \usage{
-grupos(legislatura = 12)
+grupos(legislatura)
 }
 \arguments{
 \item{legislatura}{A numeric value above 12 (No information prior to then).}
