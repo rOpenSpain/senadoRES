@@ -10,10 +10,7 @@ editor_options:
 ---
 
 ```{r setup, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>", cache = TRUE)
 ```
 
 ```{r setup}
@@ -127,7 +124,7 @@ plenarias(12)
 
 Note that this information is only available from the X legislature onward
 
-```{r}
+```{r plot-plenarias}
 s <- lapply(10:14, plenarias)
 sessions <- do.call(rbind, s)
 ggplot(sessions) +
@@ -173,4 +170,3 @@ head(organigrama())
 ```
 
 Unfortunately this doesn't go back in time, I think it only shows the current
-
