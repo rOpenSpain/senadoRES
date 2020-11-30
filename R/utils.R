@@ -36,20 +36,30 @@ xml2ch <- function(y) {
 }
 
 add_rows <- function(x, y) {
+
     if (all(is.na(y))) {
         y <- length(y)
     } else if (is.numeric(y)) {
         y <- y
     } else if (!is.null(dim(y))) {
         y <- nrow(y)
+    } else if (is.null(y)) {
+        y <- 1
     }
 
 
     if (length(x) == 0) {
         return(matrix(nrow = nrow(y)))
-    } else{
-        x[rep(1, y), , drop = FALSE]
     }
+
+    z <- which.max(c(y, nrow(x)))
+
+    if (z == 1) {
+        z <- rep(1, length.out = y)
+    } else {
+       z <-  seq(from = 1, to = nrow(x), by = 1)
+    }
+    x[z, , drop = FALSE]
 }
 
 fix_sumario_code <- function(id) {
@@ -76,4 +86,9 @@ merger <- function(x, y) {
         sum(is.na(xz), xz %in% character(0L), xz %in% "") == length(xz)
     })
     z[, !rem, drop = FALSE]
+}
+
+omit_xml <- function(x){
+    omit <- paste("self", x, sep = "::", collapse = "|")
+    paste0("*[not(", omit, ")]")
 }

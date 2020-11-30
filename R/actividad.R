@@ -39,21 +39,41 @@ helper <- function(x, path) {
 }
 
 tidy_asunto <- function(asunto) {
+
+    omit <- omit_xml(c("intervencion", "punto", "expediente"))
+    m <- xml2matrix2(xml_find_all(asunto, paste0("./", omit)))
+    colnames(m) <- paste0("asunto_", colnames(m))
     punto <- xml_find_all(asunto, "./punto")
     if (length(punto) != 0) {
         punto <- tidy_punto(xml_children(punto))
     } else {
-        punto <- NA
+        punto <- NULL
     }
     int <- xml_find_all(asunto, "./intervencion")
     if (length(int) != 0) {
         l <- lapply(int, tidy_intervencion)
         l2 <- Reduce(merger, l)
+        colnames(l2) <- paste0("intervencion_", colnames(l2))
     } else {
-        l2 <- NA
+        l2 <- NULL
     }
-    m <- xml2matrix(xml_find_all(asunto, "./*[not(self::intervencion|self::punto)]"))
-    cbind.data.frame(add_rows(m, l2), l2, punto)
+    if ("expediente" %in% xml_name(asunto)) {
+        expediente <- t(as.matrix(helper(asunto, "expediente")))
+    } else {
+        expediente <- NULL
+    }
+
+    # Merge output
+    if (!is.null(expediente)) {
+        m <- cbind.data.frame(add_rows(m, expediente), expediente)
+    }
+    if (!is.null(l2)) {
+        m <- cbind.data.frame(add_rows(m, l2), l2)
+    }
+    if (!is.null(punto)) {
+        m <- cbind.data.frame(add_rows(m, punto), punto)
+    }
+    m
 }
 
 tidy_punto <- function(x) {
@@ -61,6 +81,8 @@ tidy_punto <- function(x) {
     colnames(punto) <- paste0("punto_", colnames(punto))
     punto
 }
+
+
 
 tidy_intervencion <- function(x) {
 
@@ -88,12 +110,10 @@ detalles <- function(url) {
     meta <- xml_find_all(x, "/sesion/update|fecha|legis")
     meta <- xml2matrix2(meta)
     asuntos <- xml_find_all(x, "/sesion/asunto")
-    browser()
     l <- lapply(asuntos, tidy_asunto)
-    do.call(rbind, l)
+    Reduce(merger, l)
 }
 # Comisiones y Ponencias
 # Publicaciones Oficiales
 # Iniciativas parlamentarias Legislativas
 # Iniciativas parlamentarias de control
-# TODO: continue here with actividades, fix detalles (do not forget to get data about the people.)
