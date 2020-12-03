@@ -75,42 +75,42 @@ tidy_diputado(10, 10)
 
 ### Documents
 
-The Senate has its own publication with different types of documents. The three main documents are a document, the *boletin* and the *sumario*. All recognized documents have a code named CVE. You can create the CVE with:
+The Senate has its own publication with different types of documents. The three main documents are a document, the *boletin* and the *sumario*. All recognized documents have a code named CSV. You can create the CSV with:
 
-```{r cve}
-document_cve(legislatura = 14, sesion = 1, number = 1)
-boletin_cve(legislatura = 14, sesion = 1)
-sumario_cve(legislatura = 14, sesion = 1)
+```{r csv}
+document_csv(legislatura = 14, sesion = 1, number = 1)
+boletin_csv(legislatura = 14, sesion = 1)
+sumario_csv(legislatura = 14, sesion = 1)
 ```
 
-If you found a CVE and you aren't sure if a code is valid with `check_code()`. Once we have a valid CVE we can retrieve the information about the document:
+If you found a CSV and you aren't sure if a code is valid with `check_code()`. Once we have a valid CSV we can retrieve the information about the document:
 
 ```{r boletin}
-boletin_cve <- boletin_cve(14, 3)
-b <-  boletin(boletin_cve)
+boletin_csv <- boletin_csv(14, 3)
+b <-  boletin(boletin_csv)
 head(b[, c(1:14, 16)])
 ```
 
 Here I omitted a column because the functions also return the text explaining the document and it is a bit verbose to show.
 
 ```{r sumario}
-sumario_cve <- sumario_cve(legislatura = 14, sesion = 1)
-s <- sumario(sumario_cve)
+sumario_csv <- sumario_csv(legislatura = 14, sesion = 1)
+s <- sumario(sumario_csv)
 head(s)
 ```
 
 Both of them refer to a session, but they do not provide the same information. To make it easier to retrieve all information possible from a session you can do this:
 
 ```{r boletin_sumario}
-bs <- boletin_sumario(sumario_cve(legislatura = 14, sesion = 1))
+bs <- boletin_sumario(sumario_csv(legislatura = 14, sesion = 1))
 head(bs)
 ```
 
 If you are interested in a single document you can then use:
 
 ```{r document}
-document_cve <- "BOCG_D_14_3_15"
-d <- documento(document_cve)
+document_csv <- "BOCG_D_14_3_15"
+d <- documento(document_csv)
 d[, 1:15]
 ```
 

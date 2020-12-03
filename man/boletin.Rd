@@ -16,9 +16,9 @@ A data.frame
 Boletin
 }
 \examples{
-boletin_CVE <- boletin_cve(14, 3)
-b <-  boletin(boletin_CVE)
+boletin_csv <- boletin_csv(14, 3)
+b <-  boletin(boletin_csv)
 }
 \seealso{
-\code{\link[=boletin_cve]{boletin_cve()}}
+\code{\link[=boletin_csv]{boletin_csv()}}
 }

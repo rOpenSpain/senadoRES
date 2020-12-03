@@ -1,7 +1,7 @@
 
 #' @examples
-#' document_cve <- "BOCG_D_14_110_901"
-#' d <- documento(document_cve)
+#' document_csv <- "BOCG_D_14_110_901"
+#' d <- documento(document_csv)
 #' head(hyper_documento(14, d$NUMEXP))
 hyper_documento <- function(legislatura, numex) {
     if (!is_numeric(legislatura) && !length(legislatura) == 1) {

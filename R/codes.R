@@ -1,14 +1,14 @@
 #' Document CVE
 #'
 #' Code needd to retrieve data about a document.
-#' @inheritParams sumario_cve
+#' @inheritParams sumario_csv
 #' @param number A numeric value of
 #' @family generators of CVE
 #' @return A character vector of a valid CVE.
 #' @export
 #' @examples
-#' document_cve(14, 1, 1)
-document_cve <- function(legislatura, sesion, number) {
+#' document_csv(14, 1, 1)
+document_csv <- function(legislatura, sesion, number) {
     if (!is_numeric(number) && !as.numeric(number) > 0) {
         stop("Number should be a numeric value above 0", call. = FALSE)
     }
@@ -39,8 +39,8 @@ document_nbo <- function(legislatura, sesion, type = "S") {
 #' @family generators of CVE
 #' @export
 #' @examples
-#' sumario_cve(14, 1)
-sumario_cve <- function(legislatura, sesion) {
+#' sumario_csv(14, 1)
+sumario_csv <- function(legislatura, sesion) {
     document_nbo(legislatura, sesion, "S")
 }
 
@@ -48,13 +48,13 @@ sumario_cve <- function(legislatura, sesion) {
 #'
 #' Creates the code of the summary of a session of the senate with the
 #' documents that got talk.
-#' @inheritParams sumario_cve
+#' @inheritParams sumario_csv
 #' @return Summary of the session plus information about the documents discussed.
 #' @family generators of CVE
 #' @export
 #' @examples
-#' boletin_cve(14, 1)
-boletin_cve <- function(legislatura, sesion) {
+#' boletin_csv(14, 1)
+boletin_csv <- function(legislatura, sesion) {
     document_nbo(legislatura, sesion, type = "T")
 }
 

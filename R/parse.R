@@ -1,4 +1,4 @@
-#' Clean the data of the diputado
+#' Clean the data of the diputado on the congress!!
 #'
 #' @param diputado A numeric id.
 #' @param legislatura A numeric value of the legislature

@@ -1,5 +1,4 @@
 # Pleno y diputación permanente
-    # https://www.senado.es/web/ficopendataservlet?tipoFich=14&legis=13#
 
 #' Plenary sessions
 #'
@@ -93,7 +92,6 @@ tidy_intervencion <- function(x) {
     path <- "./id|asunto|hora_inicio|offset_inicio|hora_fin|duracion_mseg|duracion_texto|path1|path0"
     data <- xml2ch(xml_find_all(x, path))
     out <- c(data, orador, fase, cargo, grupo)
-    names(out)[1] <- paste0("intervencion_", names(out[1]))
     as.data.frame(t(as.matrix(out)))
 }
 
@@ -113,7 +111,3 @@ detalles <- function(url) {
     l <- lapply(asuntos, tidy_asunto)
     Reduce(merger, l)
 }
-# Comisiones y Ponencias
-# Publicaciones Oficiales
-# Iniciativas parlamentarias Legislativas
-# Iniciativas parlamentarias de control

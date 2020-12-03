@@ -2,7 +2,7 @@
 % Please edit documentation in R/parse.R
 \name{tidy_diputado}
 \alias{tidy_diputado}
-\title{Clean the data of the diputado}
+\title{Clean the data of the diputado on the congress!!}
 \usage{
 tidy_diputado(legislatura, diputado)
 }
@@ -15,7 +15,7 @@ tidy_diputado(legislatura, diputado)
 A vector with the information available.
 }
 \description{
-Clean the data of the diputado
+Clean the data of the diputado on the congress!!
 }
 \examples{
 tidy_diputado(10, 13)

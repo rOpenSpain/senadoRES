@@ -8,8 +8,8 @@
 #' @family types of documents
 #' @export
 #' @examples
-#' sumario_CVE <- sumario_cve(14, 3)
-#' head(sumario(sumario_CVE))
+#' sumario_csv <- sumario_csv(14, 3)
+#' head(sumario(sumario_csv))
 sumario <- function(cve) {
     check_code(cve)
     cve <- fix_sumario_code(cve) # Fix till they fix on the website
@@ -66,11 +66,13 @@ tidy_disposicion <- function(x) {
 #' @param cve A character with the boletin CVE.
 #' @export
 #' @return A data.frame
-#' @seealso [boletin_cve()]
+#' @seealso [boletin_csv()]
 #' @examples
-#' boletin_CVE <- boletin_cve(14, 3)
-#' b <-  boletin(boletin_CVE)
+#' boletin_csv <- boletin_csv(14, 3)
+#' b <-  boletin(boletin_csv)
 boletin <- function(cve) {
+    # /web/actividadparlamentaria/publicacionesoficiales/senado/boletinesoficiales/detalle/index.html?id=20112020
+    #  Follows the DDMMYYYY format
     check_code(cve)
     url <- paste0(force(BASE_URL), "/legis", id2legis(cve),
                   "/publicaciones/xml/senado/bocg/", cve, ".XML")
@@ -92,7 +94,7 @@ boletin <- function(cve) {
 #' Info of a session
 #'
 #' Merges both information from the [boletin()] and from the [sumario()]
-#' @inheritParams sumario_cve
+#' @inheritParams sumario_csv
 #' @return A data.frame
 #' @seealso [boletin()] and [sumario()]
 #' @export
@@ -100,8 +102,8 @@ boletin <- function(cve) {
 #' bs <- boletin_sumario(14, 3)
 boletin_sumario <- function(legislatura, sesion) {
 
-    s <- sumario(sumario_cve(legislatura, sesion))
-    b <- boletin(boletin_cve(legislatura, sesion))
+    s <- sumario(sumario_csv(legislatura, sesion))
+    b <- boletin(boletin_csv(legislatura, sesion))
     out <- cbind(s, b)
     out
 }
@@ -109,11 +111,11 @@ boletin_sumario <- function(legislatura, sesion) {
 #' A document
 #' @param cve A character with a document CVE.
 #' @family types of documents
-#' @seealso [document_cve()]
+#' @seealso [document_csv()]
 #' @export
 #' @examples
-#' document_cve <- "BOCG_D_14_110_901"
-#' documento(document_cve)
+#' document_csv <- "BOCG_D_14_110_901"
+#' documento(document_csv)
 documento <- function(cve) {
     check_code(cve)
     url <- paste0("https://www.senado.es/legis",

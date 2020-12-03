@@ -18,8 +18,8 @@ If multiple autors are involved in a disposicion and multiple documents they
 get mixed.
 }
 \examples{
-sumario_CVE <- sumario_cve(14, 3)
-head(sumario(sumario_CVE))
+sumario_csv <- sumario_csv(14, 3)
+head(sumario(sumario_csv))
 }
 \seealso{
 Other types of documents: 

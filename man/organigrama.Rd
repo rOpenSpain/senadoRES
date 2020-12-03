@@ -4,13 +4,17 @@
 \alias{organigrama}
 \title{Organization chart}
 \usage{
-organigrama()
+organigrama(legislatura)
+}
+\arguments{
+\item{legislatura}{A numeric value above 12 (No information prior to then).}
 }
 \value{
 A \code{data.frame} with all the information available.
 }
 \description{
-Retrieves the relationships between people responsible
+Retrieves the relationships between people responsible of the Senate.
+At the moment due to limitation on the website only works on the 13 legislature.
 }
 \examples{
 head(organigrama())

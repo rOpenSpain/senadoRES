@@ -13,11 +13,11 @@ documento(cve)
 A document
 }
 \examples{
-document_cve <- "BOCG_D_14_110_901"
-documento(document_cve)
+document_csv <- "BOCG_D_14_110_901"
+documento(document_csv)
 }
 \seealso{
-\code{\link[=document_cve]{document_cve()}}
+\code{\link[=document_csv]{document_csv()}}
 
 Other types of documents: 
 \code{\link{sumario}()}
