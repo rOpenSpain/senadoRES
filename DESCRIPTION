@@ -20,7 +20,8 @@ Suggests:
     knitr,
     rmarkdown,
     testthat,
-    spelling
+    spelling,
+    covr
 VignetteBuilder: 
     knitr
 Encoding: UTF-8
