@@ -2,26 +2,27 @@ Type: Package
 Package: senadoRES
 Title: Information About the Senate of Spain
 Version: 0.1.0
+Authors@R: 
+    person(given = "Lluís",
+           family = "Revilla Sancho",
+           role = c("aut", "cre"),
+           email = "lluis.revilla@gmail.com",
+           comment = c(ORCID = "0000-0001-9747-2570"))
 Description: Retrieve and parse information about the Spanish
     Congress.
 License: MIT + file LICENSE
 URL: https://github.com/llrs/senadoRES
 BugReports: https://github.com/llrs/senadoRES/issues
 Imports: 
-    xml2 (>= 1.2.2),
-    httr (>= 1.4.2)
+    httr (>= 1.4.2),
+    xml2 (>= 1.2.2)
 Suggests: 
-    testthat,
     knitr,
-    rmarkdown
-Authors@R: 
-    person(given = "Lluís",
-       family = "Revilla Sancho",
-       role = c("aut", "cre"),
-       email = "lluis.revilla@gmail.com",
-       comment = c(ORCID = "0000-0001-9747-2570"))
+    rmarkdown,
+    testthat
+VignetteBuilder: 
+    knitr
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
-VignetteBuilder: knitr

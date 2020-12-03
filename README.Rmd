@@ -18,6 +18,8 @@ knitr::opts_chunk$set(
 # senadoRES
 
 <!-- badges: start -->
+[![R build status](https://github.com/llrs/senadoRES/workflows/R-CMD-check/badge.svg)](https://github.com/llrs/senadoRES/actions)
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 <!-- badges: end -->
 
 The goal of senadoRES is to provide information about the [Senate of Spain](https://en.wikipedia.org/wiki/Senate_of_Spain).
@@ -25,13 +27,8 @@ It uses the [Open Data](https://www.senado.es/web/relacionesciudadanos/datosabie
 
 ## Installation
 
-You can install the released version of senadoRES from [CRAN](https://CRAN.R-project.org) with:
+You can install the released version of senadoRES with:
 
-``` r
-install.packages("senadoRES")
-```
-
-or 
 
 ``` r
 remotes::install_github("llrs/senadoRES")
@@ -61,22 +58,23 @@ We can see the increase of females on the Senate along the legislatures:
 
 ```{r senadoras}
 ts %>%
-    group_by(legislatura) %>%
-    count(sex) %>%
-    mutate(total = sum(n)) %>%
-    filter(!is.na(sex)) %>%
-    mutate(ratio = n/total) %>%
-    filter(sex != "male") %>% 
-    ggplot() +
-    geom_point(aes(legislatura, ratio, col = sex, shape = sex), size = 5) +
-    geom_hline(yintercept = 0.5, linetype = 2, col = "red") +
-    scale_x_continuous(breaks = seq_len(15)) +
-    scale_y_continuous(labels = scales::percent_format(accuracy = 1), 
-                       breaks = seq(from = 0, to = 0.7, by = .1),
-                       expand = expansion(add = c(0, 0.01)), limits = c(0, NA)) +
-    theme_minimal() +
-    labs(title = "Ratio of women", x  = "Legislatura", y = "% of women") +
-    guides(col = FALSE, shape = FALSE)
+  group_by(legislatura) %>%
+  count(sex) %>%
+  mutate(total = sum(n)) %>%
+  filter(!is.na(sex)) %>%
+  mutate(ratio = n/total) %>%
+  filter(sex != "male") %>% 
+  ggplot() +
+  geom_point(aes(legislatura, ratio), size = 5) +
+  geom_hline(yintercept = 0.5, linetype = 2, col = "red") +
+  scale_x_continuous(breaks = seq_len(15)) +
+  scale_y_continuous(labels = scales::percent_format(accuracy = 1), 
+                     breaks = seq(from = 0, to = 1, by = .1),
+                     expand = expansion(add = c(0.01, 0.01)), limits = c(0, NA)) +
+  theme_minimal() +
+  labs(title = "Ratio of women", x  = "Legislatura", y = "% of women") +
+  guides(col = FALSE, shape = FALSE) +
+  theme(panel.grid.minor.x = element_blank())
 ```
 
 
