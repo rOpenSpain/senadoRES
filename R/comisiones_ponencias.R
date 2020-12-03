@@ -1,3 +1,14 @@
+#' *Comisiones*
+#'
+#' Look up the *comisiones* and *ponencias* of a legislature.
+#' Rellevant to know the code of the work groups.
+#' @inheritParams plenarias
+#' @return A `data.frame` with the *comisiones* and *ponencias* of that legislature.
+#' @export
+#' @examples
+#' if (interactive()) {
+#'    comisiones(13)
+#' }
 comisiones <- function(legislatura) {
     if (!is_numeric(legislatura) || length(legislatura) > 1) {
         stop("Should be a single number, like 1 or 14")

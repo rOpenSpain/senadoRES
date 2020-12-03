@@ -4,7 +4,7 @@
 \alias{get_xml}
 \title{Retrieve the XML content}
 \usage{
-get_xml(query)
+get_xml(query, encoding)
 }
 \arguments{
 \item{query}{A query to the website.}
