@@ -46,6 +46,10 @@ jobs:
 
       - uses: r-lib/actions/setup-pandoc@v1
 
+      - name: To install xml2
+        if: runner.os == "Linux"
+        run: sudo apt-get install libcurl4-openssl-dev
+
       - name: Query dependencies
         run: |
           install.packages('remotes')
