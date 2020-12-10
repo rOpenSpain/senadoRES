@@ -161,6 +161,40 @@ head(g)
 
 Note that the record in this case starts from the XII legislature.
 
+# Laws
+
+As a legislative chamber one of the most important duties is to approve and change laws-
+We can see how many got approved (note that some were shorter on time or are unfinished):
+
+```{r leyes}
+l <- vector("list", 6)
+for (i in 6:14) {
+    try(l[[i - 5]] <- cbind(leyes(i), legislatura = i))
+}
+l2 <- l[lengths(l) != 0]
+l3 <- do.call(rbind, l2)
+ggplot(l3) + 
+  geom_point(aes(as.factor(legislatura), numLey, group = tipo, col = tipo), 
+             position = position_jitterdodge(jitter.height = 0,
+                                             jitter.width = 0.25)) +
+  theme_minimal() + 
+  labs(x = "Legislatura", y = "Law number", title = "Approved laws", 
+       col = "Type", group = "Type") +
+  scale_x_discrete(breaks = as.character(6:14), 
+                   labels = as.character(6:14),
+                   drop = FALSE)
+```
+
+We can see a reduction on laws approved. 
+
+```{r leyes2}
+ggplot(l3) +
+  geom_point(aes(anio, numLey, col = tipo, group = tipo),
+              position = position_dodge(width = 0.5)) +
+  theme_minimal()
+```
+
+
 ### Organization chart
 
 If you want to know who works where and their position you can check it out with:

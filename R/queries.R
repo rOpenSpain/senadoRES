@@ -20,6 +20,7 @@ get_xml <- function(query, encoding) {
         stop("API did not find the requested document.", call. = FALSE)
     }
 
+
     if (missing(encoding)) {
         encoding <- "ISO-8859-15"
     }
@@ -29,5 +30,20 @@ get_xml <- function(query, encoding) {
     # BOCG_T_14_110.XML has ISO-8859-15
     # Apparently ISO-8859-15 includes the windows-1252
     # Other areas like https://www.senado.es/web/ficopendataservlet?tipoFich=7&legis=14 has UTF-8
-    content(response, encoding = encoding)
+    out <- content(response, encoding = encoding)
+    if (is.null(content(response))) {
+        stop("The response is empty", call. = FALSE)
+    }
+    out
+}
+
+
+compose_url <- function(url, ...) {
+    if (missing(url)) {
+        url <- "https://senado.es/web/ficopendataservlet?"
+    }
+    l <- list(...)
+    other <- unlist(l, recursive = FALSE)
+    names_arg <- paste0(names(other), "=")
+    paste0(url, paste0(names_arg, other, collapse = "&"))
 }
