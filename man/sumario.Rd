@@ -19,7 +19,9 @@ get mixed.
 }
 \examples{
 sumario_csv <- sumario_csv(14, 3)
-head(sumario(sumario_csv))
+if (interactive()) {
+    head(sumario(sumario_csv))
+}
 }
 \seealso{
 Other types of documents: 

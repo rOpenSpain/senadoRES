@@ -9,7 +9,9 @@
 #' @export
 #' @examples
 #' sumario_csv <- sumario_csv(14, 3)
-#' head(sumario(sumario_csv))
+#' if (interactive()) {
+#'     head(sumario(sumario_csv))
+#' }
 sumario <- function(cve) {
     check_code(cve)
     cve <- fix_sumario_code(cve) # Fix till they fix on the website
