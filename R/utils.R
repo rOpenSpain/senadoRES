@@ -17,20 +17,20 @@ BASE_URL <- "https://www.senado.es"
 #' @importFrom xml2 xml_name
 xml2matrix <- function(y) {
     names <- xml_name(xml_children(y))
-    txt <- xml_text(xml_children(y))
+    txt <- xml_text(xml_children(y), trim = TRUE)
     names(txt) <- names
     t(txt)
 }
 
 xml2matrix2 <- function(y) {
     names <- xml_name(y)
-    txt <- xml_text(y)
+    txt <- xml_text(y, trim = TRUE)
     names(txt) <- names
     t(txt)
 }
 
 xml2ch <- function(y) {
-    txt <- xml_text(y)
+    txt <- xml_text(y, trim = TRUE)
     names(txt) <- xml_name(y)
     txt
 }
