@@ -1,15 +1,23 @@
 #' Retrieve the XML content
 #'
 #' Look up on the internet and get the content
-#' @param query A query to the website.
+#' @param query A character with the url of the query to the website.
+#' @param encoding A character with the encoding, usually either "windows-1252", "ISO-8859-15" or "UTF-8".
 #' @importFrom httr content
 #' @importFrom httr GET
 #' @importFrom httr user_agent
 #' @importFrom httr status_code
 #' @importFrom httr http_type
+#' @keywords internal
 get_xml <- function(query, encoding) {
     user_agent <- user_agent("https://github.com/llrs/senadoRES")
     response <- GET(query, user_agent)
+
+    if (response$url != query) {
+        stop("Resource likely moved. ",
+             "Contact the maintainer and explain what you tried.",
+             call. = FALSE)
+    }
     if (status_code(response) != 200) {
         stop("Could not retrieve the data.", call. = FALSE)
     }
@@ -31,7 +39,7 @@ get_xml <- function(query, encoding) {
     # Apparently ISO-8859-15 includes the windows-1252
     # Other areas like https://www.senado.es/web/ficopendataservlet?tipoFich=7&legis=14 has UTF-8
     out <- content(response, encoding = encoding)
-    if (is.null(content(response))) {
+    if (is.null(out)) {
         stop("The response is empty", call. = FALSE)
     }
     out
@@ -40,7 +48,7 @@ get_xml <- function(query, encoding) {
 
 compose_url <- function(url, ...) {
     if (missing(url)) {
-        url <- "https://senado.es/web/ficopendataservlet?"
+        url <- "https://www.senado.es/web/ficopendataservlet?"
     }
     l <- list(...)
     other <- unlist(l, recursive = FALSE)
