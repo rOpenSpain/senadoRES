@@ -1,8 +1,8 @@
-
-#' @param A numeric id.
-#' @param legislatura A numeric value of the legislature
-#' @examples
-#' url_diputado(10, 13)
+# This is for the congress not the senate!!
+# @param A numeric id.
+# @param legislatura A numeric value of the legislature
+# @examples
+# url_diputado(10, 13)
 url_diputado <- function(diputado, legislatura) {
 
     if (!is_numeric(diputado)) {
