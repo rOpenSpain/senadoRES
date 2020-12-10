@@ -7,11 +7,12 @@
 #' @inheritParams grupos
 #' @return A data.frame with the information available.
 #' @examples
-#' head(plenarias(10))
+#' if (interactive()) {
+#'     head(plenarias(10))
+#' }
 plenarias <- function(legislatura) {
     stopifnot(legislatura >= 10)
-    base_url <- "https://www.senado.es/web/ficopendataservlet?tipoFich=14&legis="
-    url <- paste0(base_url, legislatura)
+    url <- compose_url(tipoFich = 14, legis = legislatura)
     x <- read_xml(url)
     sesion <- xml_find_all(x, "//sesionPlenaria")
     l <- lapply(sesion, xml2matrix)

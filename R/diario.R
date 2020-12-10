@@ -78,7 +78,7 @@ boletin <- function(cve) {
     check_code(cve)
     url <- paste0(force(BASE_URL), "/legis", id2legis(cve),
                   "/publicaciones/xml/senado/bocg/", cve, ".XML")
-    xml <- get_xml(url)
+    xml <- get_xml(url, encoding = "ISO-8859-15")
     cabecera <- xml2matrix2(xml_children(xml_find_all(xml, "./cabecera"))[1:6])
     disposiciones <- xml_find_all(xml, "./texto_boletin/disposicion")
     dis <- lapply(disposiciones, tidy_long_disposicion)

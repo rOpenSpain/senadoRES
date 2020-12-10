@@ -2,7 +2,7 @@
 #' Individual document of *Iniciativa parlamentaria*
 #'
 #' Retrieve information about an individual *iniciativa parlamentaria*.
-#' @inheritParams documento
+#' @inheritParams sumario_csv
 #' @param numex String code of the document of the form XXX/YYYYYY.
 #' @return A data.frame with the situation, the title the type of document, dates
 #' and many more.
