@@ -7,6 +7,8 @@
 iniciativa_parlamentaria(legislatura, numex)
 }
 \arguments{
+\item{legislatura}{A numeric value. Constituent was 0.}
+
 \item{numex}{String code of the document of the form XXX/YYYYYY.}
 }
 \value{

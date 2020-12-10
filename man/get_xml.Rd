@@ -7,8 +7,11 @@
 get_xml(query, encoding)
 }
 \arguments{
-\item{query}{A query to the website.}
+\item{query}{A character with the url of the query to the website.}
+
+\item{encoding}{A character with the encoding, usually either "windows-1252", "ISO-8859-15" or "UTF-8".}
 }
 \description{
 Look up on the internet and get the content
 }
+\keyword{internal}
