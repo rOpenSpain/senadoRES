@@ -9,6 +9,8 @@
 status](https://github.com/llrs/senadoRES/workflows/R-CMD-check/badge.svg)](https://github.com/llrs/senadoRES/actions)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![Codecov test
+coverage](https://codecov.io/gh/llrs/senadoRES/branch/master/graph/badge.svg)](https://codecov.io/gh/llrs/senadoRES?branch=master)
 <!-- badges: end -->
 
 The goal of senadoRES is to provide information about the [Senate of
