@@ -21,7 +21,8 @@ Suggests:
     rmarkdown,
     testthat,
     spelling,
-    covr
+    covr,
+    dplyr (>= 1.0.2)
 VignetteBuilder: 
     knitr
 Encoding: UTF-8

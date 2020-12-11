@@ -164,17 +164,21 @@ As a legislative chamber one of the most important duties is to approve and chan
 We can see how many got approved (note that some are closer on time or are still on the process of being approved):
 
 ```{r leyes}
-l <- vector("list", 6)
+l <- vector("list", 9)
 for (i in 6:14) {
-    try(l[[i - 5]] <- cbind(leyes(i), legislatura = i))
+    try(l[[i - 5]] <- cbind.data.frame(leyes(i), legislatura = i))
 }
 l2 <- l[lengths(l) != 0]
-l3 <- do.call(rbind, l2)
+l3 <- do.call("rbind", l2)
+l3 <- as.data.frame(l3)
 ggplot(l3) + 
-  geom_point(aes(as.factor(legislatura), 
+  geom_point(aes(legislatura, 
                  as.numeric(numLey), group = tipo, col = tipo, shape = tipo), 
              position = position_jitterdodge(jitter.height = 0,
                                              jitter.width = 0.25)) +
+  scale_x_continuous(breaks = 1:14, expand = expansion()) +
+  scale_y_continuous(expand = expansion(add = c(0, NA), 
+                                        mult = c(0, NA))) +
   theme_minimal() + 
   labs(x = "Legislatura", y = "Law number", title = "Approved laws", 
        col = "Type", group = "Type", shape = "Type")
