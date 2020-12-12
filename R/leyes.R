@@ -3,6 +3,7 @@
 #' Check how many laws were approved.
 #' @inheritParams mociones
 #' @return A data.frame with the approved laws and related information.
+#' @export
 #' @examples
 #' if (interactive()) {
 #'     l <- leyes(14)
