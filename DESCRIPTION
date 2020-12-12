@@ -22,7 +22,8 @@ Suggests:
     testthat,
     spelling,
     covr,
-    dplyr (>= 1.0.2)
+    dplyr (>= 1.0.2),
+    ggplot2 (>= 3.3.2)
 VignetteBuilder: 
     knitr
 Encoding: UTF-8
