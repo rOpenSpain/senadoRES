@@ -2,16 +2,18 @@
 % Please edit documentation in R/composicion.R
 \name{senadores}
 \alias{senadores}
-\title{Senators}
+\title{Senators since 1977}
 \usage{
 senadores()
 }
 \value{
-A \code{data.frame} with the information available
+A \code{data.frame} with the information available.
 }
 \description{
 Past and current appointed members.
 }
 \examples{
-head(senadores())
+if (interactive() {
+    head(senadores())
+}
 }

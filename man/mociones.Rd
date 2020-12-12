@@ -10,10 +10,10 @@ mociones(legislatura)
 \item{legislatura}{A numeric value. Constituent was 0.}
 }
 \value{
-A data.frame with information about the \emph{mociones}
+A data.frame with information about the \emph{mociones}.
 }
 \description{
-Download
+Download \emph{mociones}
 }
 \examples{
 if (interactive() {

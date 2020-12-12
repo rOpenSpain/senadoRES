@@ -16,5 +16,7 @@ A data.frame with the information available.
 How many session have been
 }
 \examples{
-head(plenarias(10))
+if (interactive()) {
+    head(plenarias(10))
+}
 }

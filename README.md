@@ -99,21 +99,25 @@ ts %>%
 
 <img src="man/figures/README-senadoras-1.png" width="100%" />
 
-Or the change of the parties along the years:
+Or see what has been done:
 
 ``` r
-ts %>% 
-  group_by(legislatura) %>%
-  count(grupoNombre) %>% 
-  mutate(grupoNombre = case_when(legislatura == "4" ~ gsub("^G", "GP", grupoNombre),
-                                 TRUE ~ grupoNombre)) %>% # Fix an obvious error
-  ggplot() +
-  geom_tile(aes(legislatura, 
-                forcats::fct_reorder2(grupoNombre, legislatura != 0, -legislatura, .fun = sum)),
-            fill = "black") +
-  scale_x_continuous(breaks = seq_len(15)) +
-  theme_minimal() +
-  labs(title = "Grupos políticos", x  = "Legislatura", y = element_blank())
+b <- boletin(boletin_csv(14, 1))
+b[, c("FECHA", "DISP", "apartado", "subapartado", "TITULO", "document")]
+#>        FECHA DISP                      apartado       subapartado
+#> 1 2019-12-05    1 VI. Administración del Senado Personal eventual
+#> 2 2019-12-05    2 VI. Administración del Senado Personal eventual
+#> 3 2019-12-05    3 VI. Administración del Senado Personal eventual
+#>                                                                                                                                              TITULO
+#> 1                        Personal eventual del Senado como Asistentes de los señores Senadores de los Grupos Parlamentarios de la XIII Legislatura.
+#> 2 Personal eventual adscrito a la Presidencia, Vicepresidencias Primera y Segunda y Secretarías Primera y Cuarta del Senado de la XIII Legislatura.
+#> 3                                                                                       Personal eventual al servicio del ex-Presidente del Senado.
+#>        document
+#> 1 BOCG_D_14_1_1
+#> 2 BOCG_D_14_1_2
+#> 3 BOCG_D_14_1_3
 ```
 
-<img src="man/figures/README-grupos-1.png" width="100%" />
+So, on the first session of the 14th legislature they dealt with human
+resources. We can check one of those documents, to retrieve the text
+with `documento`.

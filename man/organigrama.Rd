@@ -17,5 +17,5 @@ Retrieves the relationships between people responsible of the Senate.
 At the moment due to limitation on the website only works on the 13 legislature.
 }
 \examples{
-head(organigrama())
+head(organigrama(13))
 }

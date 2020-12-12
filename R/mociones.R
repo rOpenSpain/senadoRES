@@ -1,8 +1,8 @@
 #' *Mociones*
 #'
-#' Download
+#' Download *mociones*
 #' @inheritParams iniciativas
-#' @return A data.frame with information about the *mociones*
+#' @return A data.frame with information about the *mociones*.
 #' @seealso iniciativas_parlamentarias()
 #' @examples
 #' if (interactive() {
