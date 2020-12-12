@@ -50,25 +50,6 @@ ts %>%
     guides(col = FALSE, shape = FALSE)
 ```
 
-Or the change of the parties along the years:
-
-```{r grupos}
-ts %>% 
-  group_by(legislatura) %>%
-  count(grupoNombre) %>% 
-  mutate(grupoNombre = case_when(legislatura == "4" ~ gsub("^G", "GP", grupoNombre),
-                                 TRUE ~ grupoNombre)) %>% # Fix an obvious error
-  ggplot() +
-  geom_tile(aes(legislatura, 
-                forcats::fct_reorder2(grupoNombre, legislatura != 0, -legislatura, .fun = sum)),
-            fill = "black") +
-  scale_x_continuous(breaks = seq_len(15)) +
-  theme_minimal() +
-  labs(title = "Grupos políticos", x  = "Legislatura", y = element_blank())
-```
-
-You can also query more information about what did each one do with *senador*.
-
 
 ### Documents
 
@@ -127,8 +108,6 @@ sessions <- do.call(rbind, s)
 ggplot(sessions) +
     stat_sum(aes(sesionLegislatura, sesionHoraInicio, 
                  fill = after_stat(n), size = 1), geom = "tile") +
-    # geom_tile(aes(sesionLegislatura, sesionHoraInicio, 
-                  # fill = after_stat(n))) +
     guides(size = FALSE) +
     theme_minimal() +
     labs(title = "Hour of sessions", x = "Legislature", y = "Starting hour",
@@ -164,24 +143,8 @@ As a legislative chamber one of the most important duties is to approve and chan
 We can see how many got approved (note that some are closer on time or are still on the process of being approved):
 
 ```{r leyes}
-l <- vector("list", 9)
-for (i in 6:14) {
-    try(l[[i - 5]] <- cbind.data.frame(leyes(i), legislatura = i))
-}
-l2 <- l[lengths(l) != 0]
-l3 <- do.call("rbind", l2)
-l3 <- as.data.frame(l3)
-ggplot(l3) + 
-  geom_point(aes(legislatura, 
-                 as.numeric(numLey), group = tipo, col = tipo, shape = tipo), 
-             position = position_jitterdodge(jitter.height = 0,
-                                             jitter.width = 0.25)) +
-  scale_x_continuous(breaks = 1:14, expand = expansion()) +
-  scale_y_continuous(expand = expansion(add = c(0, NA), 
-                                        mult = c(0, NA))) +
-  theme_minimal() + 
-  labs(x = "Legislatura", y = "Law number", title = "Approved laws", 
-       col = "Type", group = "Type", shape = "Type")
+l <- leyes(14)
+head(leyes)
 ```
 
 
