@@ -5,7 +5,7 @@
 #' @return A data.frame with information about the *mociones*.
 #' @seealso iniciativas_parlamentarias()
 #' @examples
-#' if (interactive() {
+#' if (interactive()) {
 #'     mociones(13)
 #' }
 mociones <- function(legislatura) {

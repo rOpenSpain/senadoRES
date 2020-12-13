@@ -16,5 +16,7 @@ A matrix with all the information available.
 Retrieves the data for each term of the groups and political parties present
 }
 \examples{
-grupos()
+if (interactive()){
+    grupos(13)
+}
 }

@@ -5,7 +5,9 @@
 #' @return A matrix with all the information available.
 #' @export
 #' @examples
-#' grupos()
+#' if (interactive()){
+#'     grupos(13)
+#' }
 grupos <- function(legislatura){
     stopifnot(legislatura >= 12)
     x <- paste0("https://www.senado.es/web/ficopendataservlet?tipoFich=4&legis=", legislatura)
@@ -36,7 +38,7 @@ grupos <- function(legislatura){
 #' @importFrom xml2 xml_find_all
 #' @export
 #' @examples
-#' if (interactive() {
+#' if (interactive()) {
 #'     head(senadores())
 #' }
 senadores <- function() {

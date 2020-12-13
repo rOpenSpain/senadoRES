@@ -11,23 +11,26 @@ Authors@R:
 Description: Retrieve and parse information about the Spanish
     Congress.
 License: MIT + file LICENSE
-URL: https://llrs.github.io/senadoRES, https://github.com/llrs/senadoRES
+URL: https://llrs.github.io/senadoRES,
+    https://github.com/llrs/senadoRES
 BugReports: https://github.com/llrs/senadoRES/issues
+Depends: 
+    R (>= 4.0)
 Imports: 
     httr (>= 1.4.2),
     xml2 (>= 1.2.2)
 Suggests: 
-    knitr,
-    rmarkdown,
-    testthat,
-    spelling,
     covr,
     dplyr (>= 1.0.2),
-    ggplot2 (>= 3.3.2)
+    ggplot2 (>= 3.3.2),
+    knitr,
+    rmarkdown,
+    spelling,
+    testthat
 VignetteBuilder: 
     knitr
 Encoding: UTF-8
+Language: en-US
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
-Language: en-US

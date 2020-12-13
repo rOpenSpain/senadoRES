@@ -16,8 +16,10 @@ A \link{data.frame} with all the information about a session.
 Check individual session
 }
 \examples{
-url <-  "https://www.senado.es/web/ficopendataservlet?tipoFich=11&legis=14&org=S000040&numSes=020&numConv=01&fecha=17112020"
-detalles(url)
+if (interactive()) {
+    pl <- plenarias(10)
+    detalles(pl$fichUrlDetalleSesion[1])
+}
 }
 \seealso{
 \code{\link[=plenarias]{plenarias()}}

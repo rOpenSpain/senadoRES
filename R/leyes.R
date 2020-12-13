@@ -15,7 +15,7 @@ leyes <- function(legislatura) {
     leyes <- xml_find_all(xml, ".//detalleLey")
     organicas <- xml_find_all(xml, ".//detalleLeyOrganica")
     tipo <- c(rep("Ley", length(leyes)),
-              rep("Ley Orgánica", length(organicas)))
+              rep("Ley Org\U00E1nica", length(organicas)))
     o <- lapply(organicas, function(x){trimws(xml2matrix(x))})
     l <- lapply(leyes, function(x){trimws(xml2matrix(x))})
     o2 <- do.call(rbind, o)

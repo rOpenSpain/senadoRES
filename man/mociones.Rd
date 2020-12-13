@@ -16,7 +16,7 @@ A data.frame with information about the \emph{mociones}.
 Download \emph{mociones}
 }
 \examples{
-if (interactive() {
+if (interactive()) {
     mociones(13)
 }
 }

@@ -26,7 +26,7 @@ plenarias <- function(legislatura) {
     on.exit(Sys.setlocale("LC_TIME", locale))
     # Check is locale is Spanish
     sl <- set_locale() # change locale
-    if (isTRUE(sl)) {
+    if (isTRUE(sl) || startsWith(sl,"es_ES")) {
         out$sesionFechaInicio <- as.Date(out$sesionFechaInicio,
                                          format = "%d de %B de %Y")
     }
@@ -106,9 +106,14 @@ tidy_intervencion <- function(x) {
 #' @seealso [plenarias()]
 #' @export
 #' @examples
-#' url <-  "https://www.senado.es/web/ficopendataservlet?tipoFich=11&legis=14&org=S000040&numSes=020&numConv=01&fecha=17112020"
-#' detalles(url)
+#' if (interactive()) {
+#'     pl <- plenarias(10)
+#'     detalles(pl$fichUrlDetalleSesion[1])
+#' }
 detalles <- function(url) {
+    if (missing(url)) {
+        url <- compose_url()
+    }
     x <- read_xml(url)
     meta <- xml_find_all(x, "/sesion/update|fecha|legis")
     meta <- xml2matrix2(meta)

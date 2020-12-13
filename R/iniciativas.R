@@ -23,6 +23,7 @@ iniciativas <- function(legislatura) {
     Reduce(merger, out)
 }
 
+#' @importFrom xml2 xml_find_first
 tidy_iniciativas <- function(x){
     out <- xml2matrix2(xml_find_all(x,
                             paste0("./", omit_xml(c("fichero", "votaciones", "listaEnmiendas")))))

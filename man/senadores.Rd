@@ -13,7 +13,7 @@ A \code{data.frame} with the information available.
 Past and current appointed members.
 }
 \examples{
-if (interactive() {
+if (interactive()) {
     head(senadores())
 }
 }
