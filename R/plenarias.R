@@ -19,13 +19,21 @@ plenarias <- function(legislatura) {
     out <- do.call(rbind, l)
     out <- as.data.frame(out)
 
+    out$sesionHoraInicio <- as.difftime(out$sesionHoraInicio,'%H:%M')
+
     # Deal with dates and locales
     locale <- Sys.getlocale("LC_TIME")
     on.exit(Sys.setlocale("LC_TIME", locale))
-    Sys.setlocale(category = "LC_TIME", locale = "es_ES.UTF-8")
-
-    out$sesionHoraInicio <- as.difftime(out$sesionHoraInicio,'%H:%M')
-    out$sesionFechaInicio <- as.Date(out$sesionFechaInicio, format = "%d de %B de %Y")
+    # Check is locale is Spanish
+    sp <- grepl(pattern = "es_ES\\.", locale)
+    if (sp) {
+        sl <- set_locale() # change locale
+    }
+    # We use locales to match the month marzo to march and so on
+    if (isTRUE(sl) || sp) {
+        out$sesionFechaInicio <- as.Date(out$sesionFechaInicio,
+                                         format = "%d de %B de %Y")
+    }
     out
 }
 
@@ -111,4 +119,12 @@ detalles <- function(url) {
     asuntos <- xml_find_all(x, "/sesion/asunto")
     l <- lapply(asuntos, tidy_asunto)
     Reduce(merger, l)
+}
+
+
+set_locale <- function() {
+    tryCatch(Sys.setlocale(category = "LC_TIME", locale = "es_ES.UTF-8"),
+             warning = function(w){
+                 FALSE
+             }, finally = function(f){TRUE})
 }
