@@ -25,12 +25,8 @@ plenarias <- function(legislatura) {
     locale <- Sys.getlocale("LC_TIME")
     on.exit(Sys.setlocale("LC_TIME", locale))
     # Check is locale is Spanish
-    sp <- grepl(pattern = "es_ES\\.", locale)
-    if (sp) {
-        sl <- set_locale() # change locale
-    }
-    # We use locales to match the month marzo to march and so on
-    if (isTRUE(sl) || sp) {
+    sl <- set_locale() # change locale
+    if (isTRUE(sl)) {
         out$sesionFechaInicio <- as.Date(out$sesionFechaInicio,
                                          format = "%d de %B de %Y")
     }
