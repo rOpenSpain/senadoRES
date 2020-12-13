@@ -39,14 +39,13 @@ ts %>%
     mutate(ratio = n/total) %>%
     filter(sex != "male") %>% 
     ggplot() +
-    geom_point(aes(legislatura, ratio, col = sex, shape = sex), size = 5) +
+    geom_point(aes(legislatura, ratio, col = sex, shape = sex), size = 3) +
     geom_hline(yintercept = 0.5, linetype = 2, col = "red") +
     scale_x_continuous(breaks = seq_len(15)) +
-    scale_y_continuous(labels = scales::percent_format(accuracy = 1), 
-                       breaks = seq(from = 0, to = 0.7, by = .1),
+    scale_y_continuous(breaks = seq(from = 0, to = 0.7, by = .1),
                        expand = expansion(add = c(0, 0.01)), limits = c(0, NA)) +
     theme_minimal() +
-    labs(title = "Ratio of women", x  = "Legislatura", y = "% of women") +
+    labs(title = "Ratio of women", x  = "Legislatura", y = "Ratio of women") +
     guides(col = FALSE, shape = FALSE)
 ```
 
@@ -97,7 +96,7 @@ d[, 1:15]
 As you need to know how many plenary sessions were done you can check them with:
 
 ```{r plenarias}
-plenarias(12)
+head(plenarias(12))
 ```
 
 Note that this information is only available from the X legislature onward
