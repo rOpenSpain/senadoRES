@@ -39,7 +39,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -65,7 +65,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/llrs/senadoRES/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -79,8 +79,7 @@
 
       
 
-      </header><script src="vignette_files/accessible-code-block-0.0.1/empty-anchor.js"></script><link href="vignette_files/anchor-sections-1.0/anchor-sections.css" rel="stylesheet">
-<script src="vignette_files/anchor-sections-1.0/anchor-sections.js"></script><div class="row">
+      </header><script src="vignette_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Getting Started</h1>
@@ -144,14 +143,13 @@
     <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>ratio <span class="op">=</span> <span class="va">n</span><span class="op">/</span><span class="va">total</span><span class="op">)</span> <span class="op">%&gt;%</span>
     <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">sex</span> <span class="op">!=</span> <span class="st">"male"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">legislatura</span>, <span class="va">ratio</span>, col <span class="op">=</span> <span class="va">sex</span>, shape <span class="op">=</span> <span class="va">sex</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">legislatura</span>, <span class="va">ratio</span>, col <span class="op">=</span> <span class="va">sex</span>, shape <span class="op">=</span> <span class="va">sex</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> <span class="op">+</span>
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_hline</a></span><span class="op">(</span>yintercept <span class="op">=</span> <span class="fl">0.5</span>, linetype <span class="op">=</span> <span class="fl">2</span>, col <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span> <span class="op">+</span>
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq_len</a></span><span class="op">(</span><span class="fl">15</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org//reference/label_percent.html">percent_format</a></span><span class="op">(</span>accuracy <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>, 
-                       breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span>from <span class="op">=</span> <span class="fl">0</span>, to <span class="op">=</span> <span class="fl">0.7</span>, by <span class="op">=</span> <span class="fl">.1</span><span class="op">)</span>,
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span>from <span class="op">=</span> <span class="fl">0</span>, to <span class="op">=</span> <span class="fl">0.7</span>, by <span class="op">=</span> <span class="fl">.1</span><span class="op">)</span>,
                        expand <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expansion.html">expansion</a></span><span class="op">(</span>add <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.01</span><span class="op">)</span><span class="op">)</span>, limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="cn">NA</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Ratio of women"</span>, x  <span class="op">=</span> <span class="st">"Legislatura"</span>, y <span class="op">=</span> <span class="st">"% of women"</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Ratio of women"</span>, x  <span class="op">=</span> <span class="st">"Legislatura"</span>, y <span class="op">=</span> <span class="st">"Ratio of women"</span><span class="op">)</span> <span class="op">+</span>
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html">guides</a></span><span class="op">(</span>col <span class="op">=</span> <span class="cn">FALSE</span>, shape <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
 <p><img src="vignette_files/figure-html/senadoras-1.png" width="700"></p>
 </div>
@@ -345,346 +343,68 @@
 <a href="#plenarias" class="anchor"></a>Plenarias</h3>
 <p>As you need to know how many plenary sessions were done you can check them with:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/plenarias.html">plenarias</a></span><span class="op">(</span><span class="fl">12</span><span class="op">)</span>
-<span class="co">#&gt;    sesionLegislatura sesionNumero        sesionFechaInicio sesionHoraInicio</span>
-<span class="co">#&gt; 1                 12           55    19 de febrero de 2019      16.00 hours</span>
-<span class="co">#&gt; 2                 12           54     5 de febrero de 2019      16.00 hours</span>
-<span class="co">#&gt; 3                 12           53      24 de enero de 2019      16.00 hours</span>
-<span class="co">#&gt; 4                 12           52  27 de diciembre de 2018      16.50 hours</span>
-<span class="co">#&gt; 5                 12           51  18 de diciembre de 2018      16.00 hours</span>
-<span class="co">#&gt; 6                 12           50  18 de diciembre de 2018      10.50 hours</span>
-<span class="co">#&gt; 7                 12           49  11 de diciembre de 2018      16.00 hours</span>
-<span class="co">#&gt; 8                 12           48  20 de noviembre de 2018      16.00 hours</span>
-<span class="co">#&gt; 9                 12           47   6 de noviembre de 2018      16.00 hours</span>
-<span class="co">#&gt; 10                12           46    23 de octubre de 2018      16.00 hours</span>
-<span class="co">#&gt; 11                12           45     9 de octubre de 2018      16.00 hours</span>
-<span class="co">#&gt; 12                12           44 25 de septiembre de 2018      16.00 hours</span>
-<span class="co">#&gt; 13                12           43 11 de septiembre de 2018      16.00 hours</span>
-<span class="co">#&gt; 14                12           42       5 de julio de 2018      18.25 hours</span>
-<span class="co">#&gt; 15                12           41       3 de julio de 2018      17.00 hours</span>
-<span class="co">#&gt; 16                12           40      18 de junio de 2018      12.00 hours</span>
-<span class="co">#&gt; 17                12           39      11 de junio de 2018      16.00 hours</span>
-<span class="co">#&gt; 18                12           38       5 de junio de 2018      16.00 hours</span>
-<span class="co">#&gt; 19                12           37       22 de mayo de 2018      16.00 hours</span>
-<span class="co">#&gt; 20                12           36        8 de mayo de 2018      16.00 hours</span>
-<span class="co">#&gt; 21                12           35      24 de abril de 2018      16.00 hours</span>
-<span class="co">#&gt; 22                12           34      10 de abril de 2018      16.00 hours</span>
-<span class="co">#&gt; 23                12           33      20 de marzo de 2018      16.00 hours</span>
-<span class="co">#&gt; 24                12           32       6 de marzo de 2018      16.00 hours</span>
-<span class="co">#&gt; 25                12           31    20 de febrero de 2018      16.00 hours</span>
-<span class="co">#&gt; 26                12           30     6 de febrero de 2018      16.00 hours</span>
-<span class="co">#&gt; 27                12           29  12 de diciembre de 2017      16.00 hours</span>
-<span class="co">#&gt; 28                12           28  28 de noviembre de 2017      16.00 hours</span>
-<span class="co">#&gt; 29                12           27  21 de noviembre de 2017      16.00 hours</span>
-<span class="co">#&gt; 30                12           26   7 de noviembre de 2017      16.00 hours</span>
-<span class="co">#&gt; 31                12           25    27 de octubre de 2017      16.25 hours</span>
-<span class="co">#&gt; 32                12           24    27 de octubre de 2017      10.00 hours</span>
-<span class="co">#&gt; 33                12           23    10 de octubre de 2017      16.00 hours</span>
-<span class="co">#&gt; 34                12           22 26 de septiembre de 2017      16.00 hours</span>
-<span class="co">#&gt; 35                12           21 12 de septiembre de 2017      16.00 hours</span>
-<span class="co">#&gt; 36                12           20      12 de julio de 2017      12.00 hours</span>
-<span class="co">#&gt; 37                12           19      26 de junio de 2017      16.00 hours</span>
-<span class="co">#&gt; 38                12           18      13 de junio de 2017      16.00 hours</span>
-<span class="co">#&gt; 39                12           17       23 de mayo de 2017      16.00 hours</span>
-<span class="co">#&gt; 40                12           16        9 de mayo de 2017      16.00 hours</span>
-<span class="co">#&gt; 41                12           15      25 de abril de 2017      16.00 hours</span>
-<span class="co">#&gt; 42                12           14       4 de abril de 2017      16.00 hours</span>
-<span class="co">#&gt; 43                12           13      21 de marzo de 2017      16.00 hours</span>
-<span class="co">#&gt; 44                12           12       7 de marzo de 2017      16.00 hours</span>
-<span class="co">#&gt; 45                12           11    21 de febrero de 2017      16.00 hours</span>
-<span class="co">#&gt; 46                12           10     7 de febrero de 2017      16.00 hours</span>
-<span class="co">#&gt; 47                12            9  20 de diciembre de 2016      16.00 hours</span>
-<span class="co">#&gt; 48                12            8  20 de diciembre de 2016      12.00 hours</span>
-<span class="co">#&gt; 49                12            7  13 de diciembre de 2016      16.00 hours</span>
-<span class="co">#&gt; 50                12            6  29 de noviembre de 2016      16.00 hours</span>
-<span class="co">#&gt; 51                12            5  22 de noviembre de 2016      16.00 hours</span>
-<span class="co">#&gt; 52                12            4    25 de octubre de 2016      16.00 hours</span>
-<span class="co">#&gt; 53                12            3    18 de octubre de 2016      16.00 hours</span>
-<span class="co">#&gt; 54                12            2 27 de septiembre de 2016      16.00 hours</span>
-<span class="co">#&gt; 55                12            1      19 de julio de 2016      10.00 hours</span>
-<span class="co">#&gt;                 sesionTitulo</span>
-<span class="co">#&gt; 1  Sesión plenaria número 55</span>
-<span class="co">#&gt; 2  Sesión plenaria número 54</span>
-<span class="co">#&gt; 3  Sesión plenaria número 53</span>
-<span class="co">#&gt; 4  Sesión plenaria número 52</span>
-<span class="co">#&gt; 5  Sesión plenaria número 51</span>
-<span class="co">#&gt; 6  Sesión plenaria número 50</span>
-<span class="co">#&gt; 7  Sesión plenaria número 49</span>
-<span class="co">#&gt; 8  Sesión plenaria número 48</span>
-<span class="co">#&gt; 9  Sesión plenaria número 47</span>
-<span class="co">#&gt; 10 Sesión plenaria número 46</span>
-<span class="co">#&gt; 11 Sesión plenaria número 45</span>
-<span class="co">#&gt; 12 Sesión plenaria número 44</span>
-<span class="co">#&gt; 13 Sesión plenaria número 43</span>
-<span class="co">#&gt; 14 Sesión plenaria número 42</span>
-<span class="co">#&gt; 15 Sesión plenaria número 41</span>
-<span class="co">#&gt; 16 Sesión plenaria número 40</span>
-<span class="co">#&gt; 17 Sesión plenaria número 39</span>
-<span class="co">#&gt; 18 Sesión plenaria número 38</span>
-<span class="co">#&gt; 19 Sesión plenaria número 37</span>
-<span class="co">#&gt; 20 Sesión plenaria número 36</span>
-<span class="co">#&gt; 21 Sesión plenaria número 35</span>
-<span class="co">#&gt; 22 Sesión plenaria número 34</span>
-<span class="co">#&gt; 23 Sesión plenaria número 33</span>
-<span class="co">#&gt; 24 Sesión plenaria número 32</span>
-<span class="co">#&gt; 25 Sesión plenaria número 31</span>
-<span class="co">#&gt; 26 Sesión plenaria número 30</span>
-<span class="co">#&gt; 27 Sesión plenaria número 29</span>
-<span class="co">#&gt; 28 Sesión plenaria número 28</span>
-<span class="co">#&gt; 29 Sesión plenaria número 27</span>
-<span class="co">#&gt; 30 Sesión plenaria número 26</span>
-<span class="co">#&gt; 31 Sesión plenaria número 25</span>
-<span class="co">#&gt; 32 Sesión plenaria número 24</span>
-<span class="co">#&gt; 33 Sesión plenaria número 23</span>
-<span class="co">#&gt; 34 Sesión plenaria número 22</span>
-<span class="co">#&gt; 35 Sesión plenaria número 21</span>
-<span class="co">#&gt; 36 Sesión plenaria número 20</span>
-<span class="co">#&gt; 37 Sesión plenaria número 19</span>
-<span class="co">#&gt; 38 Sesión plenaria número 18</span>
-<span class="co">#&gt; 39 Sesión plenaria número 17</span>
-<span class="co">#&gt; 40 Sesión plenaria número 16</span>
-<span class="co">#&gt; 41 Sesión plenaria número 15</span>
-<span class="co">#&gt; 42 Sesión plenaria número 14</span>
-<span class="co">#&gt; 43 Sesión plenaria número 13</span>
-<span class="co">#&gt; 44 Sesión plenaria número 12</span>
-<span class="co">#&gt; 45 Sesión plenaria número 11</span>
-<span class="co">#&gt; 46 Sesión plenaria número 10</span>
-<span class="co">#&gt; 47  Sesión plenaria número 9</span>
-<span class="co">#&gt; 48  Sesión plenaria número 8</span>
-<span class="co">#&gt; 49  Sesión plenaria número 7</span>
-<span class="co">#&gt; 50  Sesión plenaria número 6</span>
-<span class="co">#&gt; 51  Sesión plenaria número 5</span>
-<span class="co">#&gt; 52  Sesión plenaria número 4</span>
-<span class="co">#&gt; 53  Sesión plenaria número 3</span>
-<span class="co">#&gt; 54  Sesión plenaria número 2</span>
-<span class="co">#&gt; 55  Sesión plenaria número 1</span>
-<span class="co">#&gt;                                                                                                       urlPagina</span>
-<span class="co">#&gt; 1  /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=62&amp;legis=12&amp;ns=55</span>
-<span class="co">#&gt; 2  /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=61&amp;legis=12&amp;ns=54</span>
-<span class="co">#&gt; 3  /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=72&amp;legis=12&amp;ns=53</span>
-<span class="co">#&gt; 4  /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=71&amp;legis=12&amp;ns=52</span>
-<span class="co">#&gt; 5  /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=60&amp;legis=12&amp;ns=51</span>
-<span class="co">#&gt; 6  /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=55&amp;legis=12&amp;ns=50</span>
-<span class="co">#&gt; 7  /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=54&amp;legis=12&amp;ns=49</span>
-<span class="co">#&gt; 8  /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=53&amp;legis=12&amp;ns=48</span>
-<span class="co">#&gt; 9  /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=52&amp;legis=12&amp;ns=47</span>
-<span class="co">#&gt; 10 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=51&amp;legis=12&amp;ns=46</span>
-<span class="co">#&gt; 11 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=50&amp;legis=12&amp;ns=45</span>
-<span class="co">#&gt; 12 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=49&amp;legis=12&amp;ns=44</span>
-<span class="co">#&gt; 13 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=58&amp;legis=12&amp;ns=43</span>
-<span class="co">#&gt; 14 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=57&amp;legis=12&amp;ns=42</span>
-<span class="co">#&gt; 15 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=56&amp;legis=12&amp;ns=41</span>
-<span class="co">#&gt; 16 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=45&amp;legis=12&amp;ns=40</span>
-<span class="co">#&gt; 17 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=47&amp;legis=12&amp;ns=39</span>
-<span class="co">#&gt; 18 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=44&amp;legis=12&amp;ns=38</span>
-<span class="co">#&gt; 19 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=43&amp;legis=12&amp;ns=37</span>
-<span class="co">#&gt; 20 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=42&amp;legis=12&amp;ns=36</span>
-<span class="co">#&gt; 21 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=41&amp;legis=12&amp;ns=35</span>
-<span class="co">#&gt; 22 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=46&amp;legis=12&amp;ns=34</span>
-<span class="co">#&gt; 23 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=39&amp;legis=12&amp;ns=33</span>
-<span class="co">#&gt; 24 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=38&amp;legis=12&amp;ns=32</span>
-<span class="co">#&gt; 25 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=37&amp;legis=12&amp;ns=31</span>
-<span class="co">#&gt; 26 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=36&amp;legis=12&amp;ns=30</span>
-<span class="co">#&gt; 27 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=35&amp;legis=12&amp;ns=29</span>
-<span class="co">#&gt; 28 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=34&amp;legis=12&amp;ns=28</span>
-<span class="co">#&gt; 29 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=33&amp;legis=12&amp;ns=27</span>
-<span class="co">#&gt; 30 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=26&amp;legis=12&amp;ns=26</span>
-<span class="co">#&gt; 31 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=32&amp;legis=12&amp;ns=25</span>
-<span class="co">#&gt; 32 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=30&amp;legis=12&amp;ns=24</span>
-<span class="co">#&gt; 33 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=23&amp;legis=12&amp;ns=23</span>
-<span class="co">#&gt; 34 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=22&amp;legis=12&amp;ns=22</span>
-<span class="co">#&gt; 35 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=21&amp;legis=12&amp;ns=21</span>
-<span class="co">#&gt; 36 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=25&amp;legis=12&amp;ns=20</span>
-<span class="co">#&gt; 37 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=20&amp;legis=12&amp;ns=19</span>
-<span class="co">#&gt; 38 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=19&amp;legis=12&amp;ns=18</span>
-<span class="co">#&gt; 39 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=18&amp;legis=12&amp;ns=17</span>
-<span class="co">#&gt; 40 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=17&amp;legis=12&amp;ns=16</span>
-<span class="co">#&gt; 41 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=16&amp;legis=12&amp;ns=15</span>
-<span class="co">#&gt; 42 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=15&amp;legis=12&amp;ns=14</span>
-<span class="co">#&gt; 43 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=14&amp;legis=12&amp;ns=13</span>
-<span class="co">#&gt; 44 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=13&amp;legis=12&amp;ns=12</span>
-<span class="co">#&gt; 45 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=12&amp;legis=12&amp;ns=11</span>
-<span class="co">#&gt; 46 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=11&amp;legis=12&amp;ns=10</span>
-<span class="co">#&gt; 47  /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=10&amp;legis=12&amp;ns=9</span>
-<span class="co">#&gt; 48   /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=9&amp;legis=12&amp;ns=8</span>
-<span class="co">#&gt; 49   /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=8&amp;legis=12&amp;ns=7</span>
-<span class="co">#&gt; 50   /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=7&amp;legis=12&amp;ns=6</span>
-<span class="co">#&gt; 51   /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=6&amp;legis=12&amp;ns=5</span>
-<span class="co">#&gt; 52   /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=4&amp;legis=12&amp;ns=4</span>
-<span class="co">#&gt; 53   /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=3&amp;legis=12&amp;ns=3</span>
-<span class="co">#&gt; 54   /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=2&amp;legis=12&amp;ns=2</span>
-<span class="co">#&gt; 55   /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=1&amp;legis=12&amp;ns=1</span>
-<span class="co">#&gt;                                                                                                     urlPaginaVotaciones</span>
-<span class="co">#&gt; 1  /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=62&amp;legis=12&amp;ns=55&amp;vot=vot</span>
-<span class="co">#&gt; 2  /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=61&amp;legis=12&amp;ns=54&amp;vot=vot</span>
-<span class="co">#&gt; 3  /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=72&amp;legis=12&amp;ns=53&amp;vot=vot</span>
-<span class="co">#&gt; 4  /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=71&amp;legis=12&amp;ns=52&amp;vot=vot</span>
-<span class="co">#&gt; 5  /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=60&amp;legis=12&amp;ns=51&amp;vot=vot</span>
-<span class="co">#&gt; 6  /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=55&amp;legis=12&amp;ns=50&amp;vot=vot</span>
-<span class="co">#&gt; 7  /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=54&amp;legis=12&amp;ns=49&amp;vot=vot</span>
-<span class="co">#&gt; 8  /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=53&amp;legis=12&amp;ns=48&amp;vot=vot</span>
-<span class="co">#&gt; 9  /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=52&amp;legis=12&amp;ns=47&amp;vot=vot</span>
-<span class="co">#&gt; 10 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=51&amp;legis=12&amp;ns=46&amp;vot=vot</span>
-<span class="co">#&gt; 11 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=50&amp;legis=12&amp;ns=45&amp;vot=vot</span>
-<span class="co">#&gt; 12 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=49&amp;legis=12&amp;ns=44&amp;vot=vot</span>
-<span class="co">#&gt; 13 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=58&amp;legis=12&amp;ns=43&amp;vot=vot</span>
-<span class="co">#&gt; 14 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=57&amp;legis=12&amp;ns=42&amp;vot=vot</span>
-<span class="co">#&gt; 15 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=56&amp;legis=12&amp;ns=41&amp;vot=vot</span>
-<span class="co">#&gt; 16 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=45&amp;legis=12&amp;ns=40&amp;vot=vot</span>
-<span class="co">#&gt; 17 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=47&amp;legis=12&amp;ns=39&amp;vot=vot</span>
-<span class="co">#&gt; 18 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=44&amp;legis=12&amp;ns=38&amp;vot=vot</span>
-<span class="co">#&gt; 19 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=43&amp;legis=12&amp;ns=37&amp;vot=vot</span>
-<span class="co">#&gt; 20 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=42&amp;legis=12&amp;ns=36&amp;vot=vot</span>
-<span class="co">#&gt; 21 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=41&amp;legis=12&amp;ns=35&amp;vot=vot</span>
-<span class="co">#&gt; 22 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=46&amp;legis=12&amp;ns=34&amp;vot=vot</span>
-<span class="co">#&gt; 23 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=39&amp;legis=12&amp;ns=33&amp;vot=vot</span>
-<span class="co">#&gt; 24 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=38&amp;legis=12&amp;ns=32&amp;vot=vot</span>
-<span class="co">#&gt; 25 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=37&amp;legis=12&amp;ns=31&amp;vot=vot</span>
-<span class="co">#&gt; 26 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=36&amp;legis=12&amp;ns=30&amp;vot=vot</span>
-<span class="co">#&gt; 27 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=35&amp;legis=12&amp;ns=29&amp;vot=vot</span>
-<span class="co">#&gt; 28 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=34&amp;legis=12&amp;ns=28&amp;vot=vot</span>
-<span class="co">#&gt; 29 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=33&amp;legis=12&amp;ns=27&amp;vot=vot</span>
-<span class="co">#&gt; 30 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=26&amp;legis=12&amp;ns=26&amp;vot=vot</span>
-<span class="co">#&gt; 31 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=32&amp;legis=12&amp;ns=25&amp;vot=vot</span>
-<span class="co">#&gt; 32 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=30&amp;legis=12&amp;ns=24&amp;vot=vot</span>
-<span class="co">#&gt; 33 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=23&amp;legis=12&amp;ns=23&amp;vot=vot</span>
-<span class="co">#&gt; 34 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=22&amp;legis=12&amp;ns=22&amp;vot=vot</span>
-<span class="co">#&gt; 35 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=21&amp;legis=12&amp;ns=21&amp;vot=vot</span>
-<span class="co">#&gt; 36 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=25&amp;legis=12&amp;ns=20&amp;vot=vot</span>
-<span class="co">#&gt; 37 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=20&amp;legis=12&amp;ns=19&amp;vot=vot</span>
-<span class="co">#&gt; 38 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=19&amp;legis=12&amp;ns=18&amp;vot=vot</span>
-<span class="co">#&gt; 39 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=18&amp;legis=12&amp;ns=17&amp;vot=vot</span>
-<span class="co">#&gt; 40 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=17&amp;legis=12&amp;ns=16&amp;vot=vot</span>
-<span class="co">#&gt; 41 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=16&amp;legis=12&amp;ns=15&amp;vot=vot</span>
-<span class="co">#&gt; 42 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=15&amp;legis=12&amp;ns=14&amp;vot=vot</span>
-<span class="co">#&gt; 43 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=14&amp;legis=12&amp;ns=13&amp;vot=vot</span>
-<span class="co">#&gt; 44 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=13&amp;legis=12&amp;ns=12&amp;vot=vot</span>
-<span class="co">#&gt; 45 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=12&amp;legis=12&amp;ns=11&amp;vot=vot</span>
-<span class="co">#&gt; 46 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=11&amp;legis=12&amp;ns=10&amp;vot=vot</span>
-<span class="co">#&gt; 47  /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=10&amp;legis=12&amp;ns=9&amp;vot=vot</span>
-<span class="co">#&gt; 48   /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=9&amp;legis=12&amp;ns=8&amp;vot=vot</span>
-<span class="co">#&gt; 49   /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=8&amp;legis=12&amp;ns=7&amp;vot=vot</span>
-<span class="co">#&gt; 50   /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=7&amp;legis=12&amp;ns=6&amp;vot=vot</span>
-<span class="co">#&gt; 51   /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=6&amp;legis=12&amp;ns=5&amp;vot=vot</span>
-<span class="co">#&gt; 52   /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=4&amp;legis=12&amp;ns=4&amp;vot=vot</span>
-<span class="co">#&gt; 53   /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=3&amp;legis=12&amp;ns=3&amp;vot=vot</span>
-<span class="co">#&gt; 54   /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=2&amp;legis=12&amp;ns=2&amp;vot=vot</span>
-<span class="co">#&gt; 55   /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=1&amp;legis=12&amp;ns=1&amp;vot=vot</span>
-<span class="co">#&gt;                 fichUrlVotaciones</span>
-<span class="co">#&gt; 1  /legis12/votaciones/ses_55.xml</span>
-<span class="co">#&gt; 2  /legis12/votaciones/ses_54.xml</span>
-<span class="co">#&gt; 3  /legis12/votaciones/ses_53.xml</span>
-<span class="co">#&gt; 4  /legis12/votaciones/ses_52.xml</span>
-<span class="co">#&gt; 5  /legis12/votaciones/ses_51.xml</span>
-<span class="co">#&gt; 6  /legis12/votaciones/ses_50.xml</span>
-<span class="co">#&gt; 7  /legis12/votaciones/ses_49.xml</span>
-<span class="co">#&gt; 8  /legis12/votaciones/ses_48.xml</span>
-<span class="co">#&gt; 9  /legis12/votaciones/ses_47.xml</span>
-<span class="co">#&gt; 10 /legis12/votaciones/ses_46.xml</span>
-<span class="co">#&gt; 11 /legis12/votaciones/ses_45.xml</span>
-<span class="co">#&gt; 12 /legis12/votaciones/ses_44.xml</span>
-<span class="co">#&gt; 13 /legis12/votaciones/ses_43.xml</span>
-<span class="co">#&gt; 14 /legis12/votaciones/ses_42.xml</span>
-<span class="co">#&gt; 15 /legis12/votaciones/ses_41.xml</span>
-<span class="co">#&gt; 16 /legis12/votaciones/ses_40.xml</span>
-<span class="co">#&gt; 17 /legis12/votaciones/ses_39.xml</span>
-<span class="co">#&gt; 18 /legis12/votaciones/ses_38.xml</span>
-<span class="co">#&gt; 19 /legis12/votaciones/ses_37.xml</span>
-<span class="co">#&gt; 20 /legis12/votaciones/ses_36.xml</span>
-<span class="co">#&gt; 21 /legis12/votaciones/ses_35.xml</span>
-<span class="co">#&gt; 22 /legis12/votaciones/ses_34.xml</span>
-<span class="co">#&gt; 23 /legis12/votaciones/ses_33.xml</span>
-<span class="co">#&gt; 24 /legis12/votaciones/ses_32.xml</span>
-<span class="co">#&gt; 25 /legis12/votaciones/ses_31.xml</span>
-<span class="co">#&gt; 26 /legis12/votaciones/ses_30.xml</span>
-<span class="co">#&gt; 27 /legis12/votaciones/ses_29.xml</span>
-<span class="co">#&gt; 28 /legis12/votaciones/ses_28.xml</span>
-<span class="co">#&gt; 29 /legis12/votaciones/ses_27.xml</span>
-<span class="co">#&gt; 30 /legis12/votaciones/ses_26.xml</span>
-<span class="co">#&gt; 31 /legis12/votaciones/ses_25.xml</span>
-<span class="co">#&gt; 32 /legis12/votaciones/ses_24.xml</span>
-<span class="co">#&gt; 33 /legis12/votaciones/ses_23.xml</span>
-<span class="co">#&gt; 34 /legis12/votaciones/ses_22.xml</span>
-<span class="co">#&gt; 35 /legis12/votaciones/ses_21.xml</span>
-<span class="co">#&gt; 36 /legis12/votaciones/ses_20.xml</span>
-<span class="co">#&gt; 37 /legis12/votaciones/ses_19.xml</span>
-<span class="co">#&gt; 38 /legis12/votaciones/ses_18.xml</span>
-<span class="co">#&gt; 39 /legis12/votaciones/ses_17.xml</span>
-<span class="co">#&gt; 40 /legis12/votaciones/ses_16.xml</span>
-<span class="co">#&gt; 41 /legis12/votaciones/ses_15.xml</span>
-<span class="co">#&gt; 42 /legis12/votaciones/ses_14.xml</span>
-<span class="co">#&gt; 43 /legis12/votaciones/ses_13.xml</span>
-<span class="co">#&gt; 44 /legis12/votaciones/ses_12.xml</span>
-<span class="co">#&gt; 45 /legis12/votaciones/ses_11.xml</span>
-<span class="co">#&gt; 46 /legis12/votaciones/ses_10.xml</span>
-<span class="co">#&gt; 47  /legis12/votaciones/ses_9.xml</span>
-<span class="co">#&gt; 48  /legis12/votaciones/ses_8.xml</span>
-<span class="co">#&gt; 49  /legis12/votaciones/ses_7.xml</span>
-<span class="co">#&gt; 50  /legis12/votaciones/ses_6.xml</span>
-<span class="co">#&gt; 51  /legis12/votaciones/ses_5.xml</span>
-<span class="co">#&gt; 52  /legis12/votaciones/ses_4.xml</span>
-<span class="co">#&gt; 53  /legis12/votaciones/ses_3.xml</span>
-<span class="co">#&gt; 54  /legis12/votaciones/ses_2.xml</span>
-<span class="co">#&gt; 55  /legis12/votaciones/ses_1.xml</span>
-<span class="co">#&gt;                                                                             fichUrlDetalleSesion</span>
-<span class="co">#&gt; 1  /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=055&amp;numConv=01&amp;fecha=19022019</span>
-<span class="co">#&gt; 2  /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=054&amp;numConv=01&amp;fecha=05022019</span>
-<span class="co">#&gt; 3  /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=053&amp;numConv=01&amp;fecha=24012019</span>
-<span class="co">#&gt; 4  /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=052&amp;numConv=01&amp;fecha=27122018</span>
-<span class="co">#&gt; 5  /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=051&amp;numConv=01&amp;fecha=18122018</span>
-<span class="co">#&gt; 6  /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=050&amp;numConv=01&amp;fecha=18122018</span>
-<span class="co">#&gt; 7  /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=049&amp;numConv=01&amp;fecha=11122018</span>
-<span class="co">#&gt; 8  /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=048&amp;numConv=01&amp;fecha=20112018</span>
-<span class="co">#&gt; 9  /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=047&amp;numConv=01&amp;fecha=06112018</span>
-<span class="co">#&gt; 10 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=046&amp;numConv=01&amp;fecha=23102018</span>
-<span class="co">#&gt; 11 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=045&amp;numConv=01&amp;fecha=09102018</span>
-<span class="co">#&gt; 12 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=044&amp;numConv=01&amp;fecha=25092018</span>
-<span class="co">#&gt; 13 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=043&amp;numConv=01&amp;fecha=11092018</span>
-<span class="co">#&gt; 14 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=042&amp;numConv=01&amp;fecha=05072018</span>
-<span class="co">#&gt; 15 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=041&amp;numConv=01&amp;fecha=03072018</span>
-<span class="co">#&gt; 16 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=040&amp;numConv=01&amp;fecha=18062018</span>
-<span class="co">#&gt; 17 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=039&amp;numConv=01&amp;fecha=11062018</span>
-<span class="co">#&gt; 18 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=038&amp;numConv=01&amp;fecha=05062018</span>
-<span class="co">#&gt; 19 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=037&amp;numConv=01&amp;fecha=22052018</span>
-<span class="co">#&gt; 20 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=036&amp;numConv=01&amp;fecha=08052018</span>
-<span class="co">#&gt; 21 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=035&amp;numConv=01&amp;fecha=24042018</span>
-<span class="co">#&gt; 22 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=034&amp;numConv=01&amp;fecha=10042018</span>
-<span class="co">#&gt; 23 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=033&amp;numConv=01&amp;fecha=20032018</span>
-<span class="co">#&gt; 24 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=032&amp;numConv=01&amp;fecha=06032018</span>
-<span class="co">#&gt; 25 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=031&amp;numConv=01&amp;fecha=20022018</span>
-<span class="co">#&gt; 26 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=030&amp;numConv=01&amp;fecha=06022018</span>
-<span class="co">#&gt; 27 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=029&amp;numConv=01&amp;fecha=12122017</span>
-<span class="co">#&gt; 28 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=028&amp;numConv=01&amp;fecha=28112017</span>
-<span class="co">#&gt; 29 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=027&amp;numConv=01&amp;fecha=21112017</span>
-<span class="co">#&gt; 30 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=026&amp;numConv=01&amp;fecha=07112017</span>
-<span class="co">#&gt; 31 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=025&amp;numConv=01&amp;fecha=27102017</span>
-<span class="co">#&gt; 32 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=024&amp;numConv=01&amp;fecha=27102017</span>
-<span class="co">#&gt; 33 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=023&amp;numConv=01&amp;fecha=10102017</span>
-<span class="co">#&gt; 34 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=022&amp;numConv=01&amp;fecha=26092017</span>
-<span class="co">#&gt; 35 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=021&amp;numConv=01&amp;fecha=12092017</span>
-<span class="co">#&gt; 36 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=020&amp;numConv=01&amp;fecha=12072017</span>
-<span class="co">#&gt; 37 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=019&amp;numConv=01&amp;fecha=26062017</span>
-<span class="co">#&gt; 38 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=018&amp;numConv=01&amp;fecha=13062017</span>
-<span class="co">#&gt; 39 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=017&amp;numConv=01&amp;fecha=23052017</span>
-<span class="co">#&gt; 40 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=016&amp;numConv=01&amp;fecha=09052017</span>
-<span class="co">#&gt; 41 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=015&amp;numConv=01&amp;fecha=25042017</span>
-<span class="co">#&gt; 42 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=014&amp;numConv=01&amp;fecha=04042017</span>
-<span class="co">#&gt; 43 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=013&amp;numConv=01&amp;fecha=21032017</span>
-<span class="co">#&gt; 44 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=012&amp;numConv=01&amp;fecha=07032017</span>
-<span class="co">#&gt; 45 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=011&amp;numConv=01&amp;fecha=21022017</span>
-<span class="co">#&gt; 46 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=010&amp;numConv=01&amp;fecha=07022017</span>
-<span class="co">#&gt; 47 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=009&amp;numConv=01&amp;fecha=20122016</span>
-<span class="co">#&gt; 48 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=008&amp;numConv=01&amp;fecha=20122016</span>
-<span class="co">#&gt; 49 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=007&amp;numConv=01&amp;fecha=13122016</span>
-<span class="co">#&gt; 50 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=006&amp;numConv=01&amp;fecha=29112016</span>
-<span class="co">#&gt; 51 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=005&amp;numConv=01&amp;fecha=22112016</span>
-<span class="co">#&gt; 52 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=004&amp;numConv=01&amp;fecha=25102016</span>
-<span class="co">#&gt; 53 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=003&amp;numConv=01&amp;fecha=18102016</span>
-<span class="co">#&gt; 54 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=002&amp;numConv=01&amp;fecha=27092016</span>
-<span class="co">#&gt; 55 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=001&amp;numConv=01&amp;fecha=19072016</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fu"><a href="../reference/plenarias.html">plenarias</a></span><span class="op">(</span><span class="fl">12</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt; Warning in Sys.setlocale(category = "LC_TIME", locale = "es_ES"): OS reports</span>
+<span class="co">#&gt; request to set locale to "es_ES" cannot be honored</span>
+<span class="co">#&gt;   sesionLegislatura sesionNumero       sesionFechaInicio sesionHoraInicio</span>
+<span class="co">#&gt; 1                12           55   19 de febrero de 2019       16.0 hours</span>
+<span class="co">#&gt; 2                12           54    5 de febrero de 2019       16.0 hours</span>
+<span class="co">#&gt; 3                12           53     24 de enero de 2019       16.0 hours</span>
+<span class="co">#&gt; 4                12           52 27 de diciembre de 2018       16.5 hours</span>
+<span class="co">#&gt; 5                12           51 18 de diciembre de 2018       16.0 hours</span>
+<span class="co">#&gt; 6                12           50 18 de diciembre de 2018       10.5 hours</span>
+<span class="co">#&gt;                sesionTitulo</span>
+<span class="co">#&gt; 1 Sesión plenaria número 55</span>
+<span class="co">#&gt; 2 Sesión plenaria número 54</span>
+<span class="co">#&gt; 3 Sesión plenaria número 53</span>
+<span class="co">#&gt; 4 Sesión plenaria número 52</span>
+<span class="co">#&gt; 5 Sesión plenaria número 51</span>
+<span class="co">#&gt; 6 Sesión plenaria número 50</span>
+<span class="co">#&gt;                                                                                                      urlPagina</span>
+<span class="co">#&gt; 1 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=62&amp;legis=12&amp;ns=55</span>
+<span class="co">#&gt; 2 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=61&amp;legis=12&amp;ns=54</span>
+<span class="co">#&gt; 3 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=72&amp;legis=12&amp;ns=53</span>
+<span class="co">#&gt; 4 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=71&amp;legis=12&amp;ns=52</span>
+<span class="co">#&gt; 5 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=60&amp;legis=12&amp;ns=51</span>
+<span class="co">#&gt; 6 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=55&amp;legis=12&amp;ns=50</span>
+<span class="co">#&gt;                                                                                                    urlPaginaVotaciones</span>
+<span class="co">#&gt; 1 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=62&amp;legis=12&amp;ns=55&amp;vot=vot</span>
+<span class="co">#&gt; 2 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=61&amp;legis=12&amp;ns=54&amp;vot=vot</span>
+<span class="co">#&gt; 3 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=72&amp;legis=12&amp;ns=53&amp;vot=vot</span>
+<span class="co">#&gt; 4 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=71&amp;legis=12&amp;ns=52&amp;vot=vot</span>
+<span class="co">#&gt; 5 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=60&amp;legis=12&amp;ns=51&amp;vot=vot</span>
+<span class="co">#&gt; 6 /web/actividadparlamentaria/sesionesplenarias/pleno/rwdsesionespleno/detalle/index.html?id=55&amp;legis=12&amp;ns=50&amp;vot=vot</span>
+<span class="co">#&gt;                fichUrlVotaciones</span>
+<span class="co">#&gt; 1 /legis12/votaciones/ses_55.xml</span>
+<span class="co">#&gt; 2 /legis12/votaciones/ses_54.xml</span>
+<span class="co">#&gt; 3 /legis12/votaciones/ses_53.xml</span>
+<span class="co">#&gt; 4 /legis12/votaciones/ses_52.xml</span>
+<span class="co">#&gt; 5 /legis12/votaciones/ses_51.xml</span>
+<span class="co">#&gt; 6 /legis12/votaciones/ses_50.xml</span>
+<span class="co">#&gt;                                                                            fichUrlDetalleSesion</span>
+<span class="co">#&gt; 1 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=055&amp;numConv=01&amp;fecha=19022019</span>
+<span class="co">#&gt; 2 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=054&amp;numConv=01&amp;fecha=05022019</span>
+<span class="co">#&gt; 3 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=053&amp;numConv=01&amp;fecha=24012019</span>
+<span class="co">#&gt; 4 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=052&amp;numConv=01&amp;fecha=27122018</span>
+<span class="co">#&gt; 5 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=051&amp;numConv=01&amp;fecha=18122018</span>
+<span class="co">#&gt; 6 /web/ficopendataservlet?tipoFich=11&amp;legis=12&amp;org=S000040&amp;numSes=050&amp;numConv=01&amp;fecha=18122018</span></code></pre></div>
 <p>Note that this information is only available from the X legislature onward</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">s</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="fl">10</span><span class="op">:</span><span class="fl">14</span>, <span class="va">plenarias</span><span class="op">)</span>
+<span class="co">#&gt; Warning in Sys.setlocale(category = "LC_TIME", locale = "es_ES"): OS reports</span>
+<span class="co">#&gt; request to set locale to "es_ES" cannot be honored</span>
+
+<span class="co">#&gt; Warning in Sys.setlocale(category = "LC_TIME", locale = "es_ES"): OS reports</span>
+<span class="co">#&gt; request to set locale to "es_ES" cannot be honored</span>
+
+<span class="co">#&gt; Warning in Sys.setlocale(category = "LC_TIME", locale = "es_ES"): OS reports</span>
+<span class="co">#&gt; request to set locale to "es_ES" cannot be honored</span>
+
+<span class="co">#&gt; Warning in Sys.setlocale(category = "LC_TIME", locale = "es_ES"): OS reports</span>
+<span class="co">#&gt; request to set locale to "es_ES" cannot be honored</span>
+
+<span class="co">#&gt; Warning in Sys.setlocale(category = "LC_TIME", locale = "es_ES"): OS reports</span>
+<span class="co">#&gt; request to set locale to "es_ES" cannot be honored</span>
 <span class="va">sessions</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/do.call.html">do.call</a></span><span class="op">(</span><span class="va">rbind</span>, <span class="va">s</span><span class="op">)</span>
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">sessions</span><span class="op">)</span> <span class="op">+</span>
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_count.html">stat_sum</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">sesionLegislatura</span>, <span class="va">sesionHoraInicio</span>, 
