@@ -124,8 +124,6 @@ detalles <- function(url) {
 
 
 set_locale <- function() {
-    tryCatch(Sys.setlocale(category = "LC_TIME", locale = "es_ES"),
-             warning = function(w){
-                 FALSE
-             }, finally = function(f){TRUE})
+    tryCatch(Sys.setlocale(category = "LC_TIME", locale = "es_ES"))
+    Sys.getlocale("LC_TIME")
 }
