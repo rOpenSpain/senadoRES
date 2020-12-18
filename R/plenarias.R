@@ -26,7 +26,7 @@ plenarias <- function(legislatura) {
     on.exit(Sys.setlocale("LC_TIME", locale))
     # Check is locale is Spanish
     sl <- set_locale() # change locale
-    if (isTRUE(sl) || startsWith(sl,"es_ES")) {
+    if (startsWith(sl,"es_ES")) {
         out$sesionFechaInicio <- as.Date(out$sesionFechaInicio,
                                          format = "%d de %B de %Y")
     }
@@ -124,7 +124,7 @@ detalles <- function(url) {
 
 
 set_locale <- function() {
-    tryCatch(Sys.setlocale(category = "LC_TIME", locale = "es_ES.UTF-8"),
+    tryCatch(Sys.setlocale(category = "LC_TIME", locale = "es_ES"),
              warning = function(w){
                  FALSE
              }, finally = function(f){TRUE})

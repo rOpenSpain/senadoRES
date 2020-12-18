@@ -117,7 +117,9 @@ boletin_sumario <- function(legislatura, sesion) {
 #' @export
 #' @examples
 #' document_csv <- "BOCG_D_14_110_901"
-#' documento(document_csv)
+#' if (interactive()) {
+#'     documento(document_csv)
+#' }
 documento <- function(cve) {
     check_code(cve)
     url <- paste0("https://www.senado.es/legis",

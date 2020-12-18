@@ -7,6 +7,7 @@
 #' @examples
 #' if (interactive()) {
 #'     l <- leyes(14)
+#'     head(l)
 #' }
 leyes <- function(legislatura) {
     url <- "https://www.senado.es/web/ficopendataservlet?tipoFich=18&legis="

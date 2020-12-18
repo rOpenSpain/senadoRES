@@ -7,6 +7,7 @@
 #' @examples
 #' if (interactive()) {
 #'     s <- senador(14, 19050)
+#'     head(s)
 #' }
 senador <- function(legislatura, codigo) {
     url <- compose_url(tipoFich = 1, cod = codigo, legis = legislatura)

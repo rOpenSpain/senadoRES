@@ -17,5 +17,6 @@ Retrieves the open data of a senator.
 \examples{
 if (interactive()) {
     s <- senador(14, 19050)
+    head(s)
 }
 }

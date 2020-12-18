@@ -22,6 +22,6 @@ Retrieve information about an individual \emph{iniciativa parlamentaria}.
 document_csv <- "BOCG_D_14_110_901"
 if (interactive()){
     d <- documento(document_csv)
-    hd <- hyper_documento(14, d$NUMEXP)
+    hd <- iniciativa_parlamentaria(14, d$NUMEXP)
 }
 }

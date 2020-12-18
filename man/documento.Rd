@@ -14,7 +14,9 @@ A document
 }
 \examples{
 document_csv <- "BOCG_D_14_110_901"
-documento(document_csv)
+if (interactive()) {
+    documento(document_csv)
+}
 }
 \seealso{
 \code{\link[=document_csv]{document_csv()}}

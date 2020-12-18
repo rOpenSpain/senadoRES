@@ -18,5 +18,6 @@ Check how many laws were approved.
 \examples{
 if (interactive()) {
     l <- leyes(14)
+    head(l)
 }
 }
