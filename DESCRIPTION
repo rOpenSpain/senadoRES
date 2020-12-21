@@ -15,7 +15,7 @@ URL: https://llrs.github.io/senadoRES,
     https://github.com/llrs/senadoRES
 BugReports: https://github.com/llrs/senadoRES/issues
 Depends: 
-    R (>= 4.0)
+    R (>= 3.6)
 Imports: 
     httr (>= 1.4.2),
     xml2 (>= 1.2.2)
