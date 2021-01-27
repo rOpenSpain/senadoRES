@@ -3,8 +3,5 @@ pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
   vignette: vignette.html
-last_built: 2020-12-21T08:10Z
-urls:
-  reference: https://llrs.github.io/senadoRES/reference
-  article: https://llrs.github.io/senadoRES/articles
+last_built: 2021-01-27T22:55Z
 
