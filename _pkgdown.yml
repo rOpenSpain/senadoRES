@@ -1,2 +1,4 @@
 template:
   package: rostemplate
+development:
+  mode: auto
