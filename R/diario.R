@@ -20,7 +20,7 @@ sumario <- function(cve) {
                   cve, ".XML")
     base_url <- force(BASE_URL)
     url <- httr::modify_url(base_url, path = url)
-    xml <- get_xml(url)
+    xml <- get_xml(url, encoding = "windows-1252")
 
     header <- xml2matrix(xml_find_all(xml, ".//cabecera"))
     apartados <- xml_find_all(xml, ".//cuerpo/apartados/apartado")
@@ -82,7 +82,7 @@ boletin <- function(cve) {
     cabecera <- xml2matrix2(xml_children(xml_find_all(xml, "./cabecera"))[1:6])
     disposiciones <- xml_find_all(xml, "./texto_boletin/disposicion")
     dis <- lapply(disposiciones, tidy_long_disposicion)
-    dis <- Reduce(rbind, dis)
+    dis <- Reduce(merger, dis)
     out <- cbind.data.frame(add_rows(cabecera, dis), dis)
     numerics <- c("NBOL", "ANNO", "numpag", "numpagfin", "DISP")
     out[, numerics] <- lapply(out[, numerics], as.numeric)
@@ -106,8 +106,8 @@ boletin_sumario <- function(legislatura, sesion) {
 
     s <- sumario(sumario_csv(legislatura, sesion))
     b <- boletin(boletin_csv(legislatura, sesion))
-    out <- cbind(s, b)
-    out
+    merge(s, b, by.x = c("cve", "idnumero"),
+                by.y = c("document", "NBOL"), all = TRUE)
 }
 
 #' A document
