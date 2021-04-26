@@ -20,7 +20,7 @@ sumario <- function(cve) {
                   cve, ".XML")
     base_url <- force(BASE_URL)
     url <- httr::modify_url(base_url, path = url)
-    xml <- get_xml(url, encoding = "windows-1252")
+    xml <- get_xml(url, encoding = "utf8")
 
     header <- xml2matrix(xml_find_all(xml, ".//cabecera"))
     apartados <- xml_find_all(xml, ".//cuerpo/apartados/apartado")

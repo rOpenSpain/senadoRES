@@ -34,7 +34,7 @@ get_xml <- function(query, encoding) {
     }
     # Encoding found via the browser
     # BOCG_B_14_110.XML has windows-1252
-    # BOCG_B_14_27.XML has windows-1252
+    # BOCG_B_14_27.XML has windows-1252 but uses utf8
     # BOCG_T_14_3.XML has ISO-8859-15
     # BOCG_T_14_110.XML has ISO-8859-15
     # Apparently ISO-8859-15 includes the windows-1252
