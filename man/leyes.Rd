@@ -14,6 +14,7 @@ A data.frame with the approved laws and related information.
 }
 \description{
 Check how many laws were approved.
+Note it might now return all the laws approved.
 }
 \examples{
 if (interactive()) {

@@ -1,6 +1,7 @@
 #' Approved laws
 #'
 #' Check how many laws were approved.
+#' Note it might now return all the laws approved.
 #' @inheritParams mociones
 #' @return A data.frame with the approved laws and related information.
 #' @export
