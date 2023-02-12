@@ -2,7 +2,7 @@
 
 #' Plenary sessions
 #'
-#' How many session have been
+#' How many session have been.
 #' @export
 #' @inheritParams grupos
 #' @return A data.frame with the information available.
@@ -10,7 +10,7 @@
 #' if (interactive()) {
 #'     head(plenarias(10))
 #' }
-plenarias <- function(legislatura) {
+plenarias <- function(legislatura = 10) {
     stopifnot(legislatura >= 10)
     url <- compose_url(tipoFich = 14, legis = legislatura)
     x <- read_xml(url)
@@ -19,7 +19,7 @@ plenarias <- function(legislatura) {
     out <- do.call(rbind, l)
     out <- as.data.frame(out)
 
-    out$sesionHoraInicio <- as.difftime(out$sesionHoraInicio,'%H:%M')
+    out$sesionHoraInicio <- as.difftime(out$sesionHoraInicio, format = '%H:%M')
 
     # Deal with dates and locales
     locale <- Sys.getlocale("LC_TIME")
@@ -124,6 +124,6 @@ detalles <- function(url) {
 
 
 set_locale <- function() {
-    tryCatch(Sys.setlocale(category = "LC_TIME", locale = "es_ES"))
+    tryCatch(Sys.setlocale(category = "LC_TIME", locale = "es_ES.utf-8"))
     Sys.getlocale("LC_TIME")
 }

@@ -7,8 +7,8 @@
 #' @return A `data.frame` with all the information available.
 #' @export
 #' @examples
-#' head(organigrama(13))
-organigrama <- function(legislatura){
+#' head(organigrama())
+organigrama <- function(legislatura = 13){
     if (missing(legislatura)) {
         legislatura <- 13
     }
