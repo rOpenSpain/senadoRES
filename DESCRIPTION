@@ -1,7 +1,7 @@
 Type: Package
 Package: senadoRES
 Title: Information About the Senate of Spain
-Version: 0.1.0
+Version: 0.1.0.9000
 Authors@R: 
     person(given = "Lluís",
            family = "Revilla Sancho",
