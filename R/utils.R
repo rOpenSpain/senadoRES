@@ -3,6 +3,10 @@ is_numeric <- function(x){
     is.numeric(tryCatch(as.numeric(x), warning = function(w){FALSE}))
 }
 
+is_integer <- function(x) {
+    x %% 1 == 0
+}
+
 id2legis <- function(x){
     strsplit(x, "_", fixed = TRUE)[[1]][3]
 }
