@@ -96,7 +96,7 @@ d[, 1:15]
 As you need to know how many plenary sessions were done you can check them with:
 
 ```{r plenarias}
-head(plenarias(12))
+head(plenarias(10))
 ```
 
 Note that this information is only available from the X legislature onward
@@ -142,8 +142,8 @@ As a legislative chamber one of the most important duties is to approve and chan
 We can see how many got approved (note that some are closer on time or are still on the process of being approved):
 
 ```{r leyes}
-l <- leyes(14)
-head(leyes)
+lex14 <- leyes(14)
+head(lex14)
 ```
 
 
