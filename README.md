@@ -5,12 +5,11 @@
 
 <!-- badges: start -->
 
-[![R build
-status](https://github.com/rOpenSpain/senadoRES/workflows/R-CMD-check/badge.svg)](https://github.com/rOpenSpain/senadoRES/actions)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![Codecov test
 coverage](https://codecov.io/gh/rOpenSpain/senadoRES/branch/master/graph/badge.svg)](https://codecov.io/gh/rOpenSpain/senadoRES?branch=master)
+[![R-CMD-check](https://github.com/rOpenSpain/senadoRES/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/rOpenSpain/senadoRES/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The goal of senadoRES is to provide information about the [Senate of
@@ -93,7 +92,7 @@ ts %>%
                      expand = expansion(add = c(0.01, 0.01)), limits = c(0, NA)) +
   theme_minimal() +
   labs(title = "Ratio of women", x  = "Legislatura", y = "% of women") +
-  guides(col = FALSE, shape = FALSE) +
+  guides(col = "none", shape = "none") +
   theme(panel.grid.minor.x = element_blank())
 ```
 
