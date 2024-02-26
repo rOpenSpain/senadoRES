@@ -1,0 +1,84 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: senadoRES 0.1.0\n"
+"POT-Creation-Date: 2021-02-04 21:32\n"
+"PO-Revision-Date: 2021-02-04 21:40+0200\n"
+"Last-Translator: Lluís Revilla Sancho <lluis.revilla@gmail.com>\n"
+"Language-Team: Spanish\n"
+"Language: Spanish\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Number should be a numeric value above 0"
+msgstr "Number debería ser un valor numérico por encima de 0"
+
+msgid "legislatura must be a numeric value equal or above 0."
+msgstr "legislatura debe ser un valor numérico igual o superior a 0."
+
+msgid "sesion must be a numeric value equal or above 0."
+msgstr "sesion debe ser un valor numérico igual o superior a 0."
+
+msgid "Unrecognized journal"
+msgstr "Diario no reconocido"
+
+msgid "Should be either T, D or S type of document."
+msgstr "El typo de documento debería ser T, D o S."
+
+msgid "Unrecognized type of document."
+msgstr "Typo de documento no reconocido."
+
+msgid "Should be a number"
+msgstr "Debería ser un número."
+
+msgid "Missing the session number."
+msgstr "Falta el número de la sesión."
+
+msgid "Missing the document reference"
+msgstr "Falta la referencia al documento."
+
+msgid "Document reference should be numeric"
+msgstr "La referencia al documento debe ser numerica"
+
+msgid "Should be a single number, like 1 or 14"
+msgstr "Debe ser un solo número, cómo 1 o 14"
+
+msgid "Legislatura should be a numeric value"
+msgstr "Legislatura debería ser un valor numérico"
+
+msgid "numex should be like '661/000073'"
+msgstr "numex deberia ser cómo '661/000073'"
+
+msgid "Specify a single numeric number"
+msgstr "Especifica un único valor numérico"
+
+msgid "Data not availabe us a higher number."
+msgstr "Datos no disponibles, usa un número mayor."
+
+msgid "Should be numeric 0 or above"
+msgstr "Debería ser un número, 0 o superior."
+
+msgid ""
+"Resource likely moved. Contact the maintainer and explain what you tried."
+msgstr "Los recursos habrán cambiado de sitio. Contacto con el encargado y explica qué has probado."
+
+msgid "Could not retrieve the data."
+msgstr "No se puede descargar los datos."
+
+msgid "Missing data."
+msgstr "Faltan datos."
+
+msgid "API did not find the requested document."
+msgstr "La Api no encontró el documento solicitado."
+
+msgid "The response is empty"
+msgstr "La respuesta está vacia"
+
+msgid "diputado should be a numeric value"
+msgstr "diputado debería ser un valor numérico"
+
+msgid "diputado cannot be higher than 349"
+msgstr "diputado no puede ser superior a 349"
+
+msgid "legislatura should be a numeric value"
+msgstr "legislatura debería ser un valor numérico"

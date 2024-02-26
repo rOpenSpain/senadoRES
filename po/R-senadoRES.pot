@@ -1,0 +1,83 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: senadoRES 0.1.0\n"
+"POT-Creation-Date: 2021-02-04 21:32\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+
+msgid "Number should be a numeric value above 0"
+msgstr ""
+
+msgid "legislatura must be a numeric value equal or above 0."
+msgstr ""
+
+msgid "sesion must be a numeric value equal or above 0."
+msgstr ""
+
+msgid "Unrecognized journal"
+msgstr ""
+
+msgid "Should be either T, D or S type of document."
+msgstr ""
+
+msgid "Unrecognized type of document."
+msgstr ""
+
+msgid "Should be a number"
+msgstr ""
+
+msgid "Missing the session number."
+msgstr ""
+
+msgid "Missing the document reference"
+msgstr ""
+
+msgid "Document reference should be numeric"
+msgstr ""
+
+msgid "Should be a single number, like 1 or 14"
+msgstr ""
+
+msgid "Legislatura should be a numeric value"
+msgstr ""
+
+msgid "numex should be like '661/000073'"
+msgstr ""
+
+msgid "Specify a single numeric number"
+msgstr ""
+
+msgid "Data not availabe us a higher number."
+msgstr ""
+
+msgid "Should be numeric 0 or above"
+msgstr ""
+
+msgid "Resource likely moved. Contact the maintainer and explain what you tried."
+msgstr ""
+
+msgid "Could not retrieve the data."
+msgstr ""
+
+msgid "Missing data."
+msgstr ""
+
+msgid "API did not find the requested document."
+msgstr ""
+
+msgid "The response is empty"
+msgstr ""
+
+msgid "diputado should be a numeric value"
+msgstr ""
+
+msgid "diputado cannot be higher than 349"
+msgstr ""
+
+msgid "legislatura should be a numeric value"
+msgstr ""
