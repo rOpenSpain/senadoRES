@@ -106,7 +106,7 @@ sessions <- do.call(rbind, s)
 ggplot(sessions) +
     stat_sum(aes(sesionLegislatura, sesionHoraInicio, 
                  fill = after_stat(n), size = 1), geom = "tile") +
-    guides(size = FALSE) +
+    guides(size = "none") +
     theme_minimal() +
     labs(title = "Hour of sessions", x = "Legislature", y = "Starting hour",
          fill = "Sessions") +
@@ -118,7 +118,7 @@ So most of the times they meet at the afternoon.
 If you want more detailed information of each session you can use the fichUrlDetalleSesion details:
 
 ```{r detalles}
-details <- detalles(paste0("https://www.senado.es", sessions$fichUrlDetalleSesion[1]))
+details <- detalles(paste0("https://www.senado.es", sessions$fichUrlDetalleSesion[3]))
 details[1:5, c("asunto_id", "asunto_hora_inicio", "asunto_hora_fin", "punto_literal", "intervencion_orador_desc", "intervencion_orador_idWeb")]
 ```
 

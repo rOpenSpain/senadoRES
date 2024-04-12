@@ -44,8 +44,8 @@ grupos <- function(legislatura){
 senadores <- function() {
   # Iterate through legislaturas
 
-  # Up to 20
-  legislat <- seq(1, 20)
+  # Up to 24 (opinionated, since 1978 there are 14 as of 2024)
+  legislat <- seq(1, 24)
   senad_list <- lapply(legislat, function(x) {
     # Try and in error return NULL
     df <- try(senadores_lappl(x), silent = TRUE)
