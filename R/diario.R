@@ -1,7 +1,7 @@
 #' Retrieve the document of _sumario_
 #'
 #' Returns the summary of a session in a tidy way.
-#' If multiple autors are involved in a disposicion and multiple documents they
+#' If multiple authors are involved in a disposition and multiple documents they
 #' get mixed.
 #' @param cve The character of the CVE of the document.
 #' @return A data.frame with a summary of the session, date, documents, authors.

@@ -20,6 +20,8 @@ A votos class with information about who voted what.
 Retrieve votes in a sesion.
 }
 \examples{
+\donttest{
 votos_64 <- votos(14, 64)
 votos_3_8 <- votos(14, 3, 8)
+}
 }

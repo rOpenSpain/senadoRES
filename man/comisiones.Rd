@@ -14,7 +14,7 @@ A \code{data.frame} with the \emph{comisiones} and \emph{ponencias} of that legi
 }
 \description{
 Look up the \emph{comisiones} and \emph{ponencias} of a legislature.
-Rellevant to know the code of the work groups.
+Relevant to know the code of the work groups.
 }
 \examples{
 if (interactive()) {
