@@ -42,21 +42,42 @@ grupos <- function(legislatura){
 #'     head(senadores())
 #' }
 senadores <- function() {
-    x <- read_xml(compose_url(tipoFich = 10))
-    s <- data.frame(nombre = xml_text(xml_find_all(x, "//senador/nombre")),
-                    apellidos = xml_text(xml_find_all(x, "//senador/apellidos")),
-                    legislatura = as.numeric(xml_text(xml_find_all(x, "//senador/legislatura"))),
-                    ultCredencial = xml_text(xml_find_all(x, "//senador/ultCredencial")),
-                    procedTipo = xml_text(xml_find_all(x, "//senador/procedTipo")),
-                    procedLiteral = xml_text(xml_find_all(x, "//senador/procedLiteral")),
-                    procedLugar = xml_text(xml_find_all(x, "//senador/procedLugar")),
-                    grupoCod = xml_text(xml_find_all(x, "//senador/grupoCod")),
-                    grupoSiglas = xml_text(xml_find_all(x, "//senador/grupoSiglas")),
-                    grupoNombre = xml_text(xml_find_all(x, "//senador/grupoNombre")))
-    s$procedLugar <- gsub(pattern = ".+: ", "", s$procedLugar)
-    s$grupoCod <- gsub(pattern = ".+: ", "", s$grupoCod)
-    s$sex <- NA
-    s$sex[endsWith(s$procedLiteral, "a")] <- "female"
-    s$sex[endsWith(s$procedLiteral, "o")] <- "male"
-    s
+  # Iterate through legislaturas
+
+  # Up to 20
+  legislat <- seq(1, 20)
+  senad_list <- lapply(legislat, function(x) {
+    # Try and in error return NULL
+    df <- try(senadores_lappl(x), silent = TRUE)
+    if (inherits(df, "try-error")) df <- NULL
+    df
+  })
+
+  # Clean null, bind and dedupe
+  senad_list <- senad_list[lengths(senad_list) > 0]
+  senad_df <- do.call(rbind, senad_list)
+  unique(senad_df)
+}
+
+# Converted from senadores, iterator
+senadores_lappl <- function(legislatura) {
+  x <- read_xml(compose_url(tipoFich = 10, legis = legislatura))
+  s <- data.frame(
+    nombre = xml_text(xml_find_all(x, "//senador/nombre")),
+    apellidos = xml_text(xml_find_all(x, "//senador/apellidos")),
+    legislatura = as.numeric(xml_text(xml_find_all(x, "//senador/legislatura"))),
+    ultCredencial = xml_text(xml_find_all(x, "//senador/ultCredencial")),
+    procedTipo = xml_text(xml_find_all(x, "//senador/procedTipo")),
+    procedLiteral = xml_text(xml_find_all(x, "//senador/procedLiteral")),
+    procedLugar = xml_text(xml_find_all(x, "//senador/procedLugar")),
+    grupoCod = xml_text(xml_find_all(x, "//senador/grupoCod")),
+    grupoSiglas = xml_text(xml_find_all(x, "//senador/grupoSiglas")),
+    grupoNombre = xml_text(xml_find_all(x, "//senador/grupoNombre"))
+  )
+  s$procedLugar <- gsub(pattern = ".+: ", "", s$procedLugar)
+  s$grupoCod <- gsub(pattern = ".+: ", "", s$grupoCod)
+  s$sex <- NA
+  s$sex[endsWith(s$procedLiteral, "a")] <- "female"
+  s$sex[endsWith(s$procedLiteral, "o")] <- "male"
+  s
 }

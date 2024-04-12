@@ -50,27 +50,27 @@ This function return the members of the Senate:
 ``` r
 ts <- senadores()
 head(ts)
-#>         nombre       apellidos legislatura ultCredencial procedTipo
-#> 1     FERNANDO    ABAD BÉCQUER           5           260          D
-#> 2      ENRIQUE  ABAD BENEDICTO          10           034          E
-#> 3     ELISABET     ABAD GIRALT          12           051          D
-#> 4 JOSÉ ANTONIO ABAD LÓPEZ-BREA           3           039          E
-#> 5     PATRICIA ABASCAL JIMÉNEZ          14           199          E
-#> 6       ADOLFO   ABEJÓN ORTEGA           9           081          E
-#>   procedLiteral            procedLugar               grupoCod grupoSiglas
-#> 1     Designado     Asamblea de Madrid     Asamblea de Madrid         800
-#> 2        Electo                Sevilla                Sevilla         800
-#> 3     Designada Parlamento de Cataluña Parlamento de Cataluña         807
-#> 4        Electo                 Zamora                 Zamora          CP
-#> 5        Electa     Eivissa-Formentera     Eivissa-Formentera         800
-#> 6        Electo             Valladolid             Valladolid         801
-#>   grupoNombre    sex
-#> 1         GPS   male
-#> 2         GPS   male
-#> 3         GPN female
-#> 4        GPCP   male
-#> 5         GPS female
-#> 6         GPP   male
+#>         nombre        apellidos legislatura ultCredencial procedTipo
+#> 1     FERNANDO     ABAD BÉCQUER           5           260          D
+#> 2      ENRIQUE   ABAD BENEDICTO          10           034          E
+#> 3     ELISABET      ABAD GIRALT          12           051          D
+#> 4 JOSÉ ANTONIO  ABAD LÓPEZ-BREA           3           039          E
+#> 5       ADOLFO    ABEJÓN ORTEGA           9           081          E
+#> 6    FRANCISCO ABELLÁN MARTÍNEZ           9           242          D
+#>   procedLiteral                 procedLugar                    grupoCod
+#> 1     Designado          Asamblea de Madrid          Asamblea de Madrid
+#> 2        Electo                     Sevilla                     Sevilla
+#> 3     Designada      Parlamento de Cataluña      Parlamento de Cataluña
+#> 4        Electo                      Zamora                      Zamora
+#> 5        Electo                  Valladolid                  Valladolid
+#> 6     Designado Asamblea Regional de Murcia Asamblea Regional de Murcia
+#>   grupoSiglas grupoNombre    sex
+#> 1         800         GPS   male
+#> 2         800         GPS   male
+#> 3         807         GPN female
+#> 4          CP        GPCP   male
+#> 5         801         GPP   male
+#> 6         800         GPS   male
 ```
 
 We can see the increase of females on the Senate along the legislatures:
