@@ -8,10 +8,8 @@
 <meta name="description" content="senadoRES">
 <title>Getting Started • senadoRES</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="../deps/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><link href="../deps/Roboto-0.4.5/font.css" rel="stylesheet">
-<link href="../deps/Roboto_Mono-0.4.5/font.css" rel="stylesheet">
-<!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Getting Started">
 <meta property="og:description" content="senadoRES">
@@ -24,26 +22,24 @@
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]--><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto&amp;display=swap" rel="stylesheet">
-<!-- rogtemplate style sheet --><link href="../BS5/rostemplate.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&amp;family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet">
+<!-- rogtemplate style sheet --><link href="../BS5/rostemplate.min.css" rel="stylesheet">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
     
 
     <nav class="navbar fixed-top navbar-light navbar-expand-lg bg-light"><div class="container">
-    
-    <div>
-      <img src="../logo.png" alt="senadoRES-logo" id="ROS-navbar-logo"><a class="navbar-brand me-2" href="../index.html">senadoRES</a>
+  <a class="navbar-brand me-2" href="../index.html">
+    <img src="../apple-touch-icon-180x180.png" alt="senadoRES logo" height="40" class="d-inline-block me-1">senadoRES</a>
 
-      <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.1.0.9000</small>
-    </div>
-    
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.1.0.9000</small>
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div id="navbar" class="collapse navbar-collapse ms-2">
+    <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
 <li class="active nav-item">
   <a class="nav-link" href="../articles/senadoRES.html">Get started</a>
@@ -68,8 +64,6 @@
 </li>
       </ul>
 </div>
-
-    
   </div>
 </nav><div class="container template-article">
 
@@ -107,27 +101,27 @@
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ts</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/senadores.html">senadores</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">ts</span><span class="op">)</span></span>
-<span><span class="co">#&gt;         nombre       apellidos legislatura ultCredencial procedTipo</span></span>
-<span><span class="co">#&gt; 1     FERNANDO    ABAD BÉCQUER           5           260          D</span></span>
-<span><span class="co">#&gt; 2      ENRIQUE  ABAD BENEDICTO          10           034          E</span></span>
-<span><span class="co">#&gt; 3     ELISABET     ABAD GIRALT          12           051          D</span></span>
-<span><span class="co">#&gt; 4 JOSÉ ANTONIO ABAD LÓPEZ-BREA           3           039          E</span></span>
-<span><span class="co">#&gt; 5     PATRICIA ABASCAL JIMÉNEZ          14           199          E</span></span>
-<span><span class="co">#&gt; 6       ADOLFO   ABEJÓN ORTEGA           9           081          E</span></span>
-<span><span class="co">#&gt;   procedLiteral            procedLugar               grupoCod grupoSiglas</span></span>
-<span><span class="co">#&gt; 1     Designado     Asamblea de Madrid     Asamblea de Madrid         800</span></span>
-<span><span class="co">#&gt; 2        Electo                Sevilla                Sevilla         800</span></span>
-<span><span class="co">#&gt; 3     Designada Parlamento de Cataluña Parlamento de Cataluña         807</span></span>
-<span><span class="co">#&gt; 4        Electo                 Zamora                 Zamora          CP</span></span>
-<span><span class="co">#&gt; 5        Electa     Eivissa-Formentera     Eivissa-Formentera         800</span></span>
-<span><span class="co">#&gt; 6        Electo             Valladolid             Valladolid         801</span></span>
-<span><span class="co">#&gt;   grupoNombre    sex</span></span>
-<span><span class="co">#&gt; 1         GPS   male</span></span>
-<span><span class="co">#&gt; 2         GPS   male</span></span>
-<span><span class="co">#&gt; 3         GPN female</span></span>
-<span><span class="co">#&gt; 4        GPCP   male</span></span>
-<span><span class="co">#&gt; 5         GPS female</span></span>
-<span><span class="co">#&gt; 6         GPP   male</span></span></code></pre></div>
+<span><span class="co">#&gt;         nombre        apellidos legislatura ultCredencial procedTipo</span></span>
+<span><span class="co">#&gt; 1     FERNANDO     ABAD BÉCQUER           5           260          D</span></span>
+<span><span class="co">#&gt; 2      ENRIQUE   ABAD BENEDICTO          10           034          E</span></span>
+<span><span class="co">#&gt; 3     ELISABET      ABAD GIRALT          12           051          D</span></span>
+<span><span class="co">#&gt; 4 JOSÉ ANTONIO  ABAD LÓPEZ-BREA           3           039          E</span></span>
+<span><span class="co">#&gt; 5       ADOLFO    ABEJÓN ORTEGA           9           081          E</span></span>
+<span><span class="co">#&gt; 6    FRANCISCO ABELLÁN MARTÍNEZ           9           242          D</span></span>
+<span><span class="co">#&gt;   procedLiteral                 procedLugar                    grupoCod</span></span>
+<span><span class="co">#&gt; 1     Designado          Asamblea de Madrid          Asamblea de Madrid</span></span>
+<span><span class="co">#&gt; 2        Electo                     Sevilla                     Sevilla</span></span>
+<span><span class="co">#&gt; 3     Designada      Parlamento de Cataluña      Parlamento de Cataluña</span></span>
+<span><span class="co">#&gt; 4        Electo                      Zamora                      Zamora</span></span>
+<span><span class="co">#&gt; 5        Electo                  Valladolid                  Valladolid</span></span>
+<span><span class="co">#&gt; 6     Designado Asamblea Regional de Murcia Asamblea Regional de Murcia</span></span>
+<span><span class="co">#&gt;   grupoSiglas grupoNombre    sex</span></span>
+<span><span class="co">#&gt; 1         800         GPS   male</span></span>
+<span><span class="co">#&gt; 2         800         GPS   male</span></span>
+<span><span class="co">#&gt; 3         807         GPN female</span></span>
+<span><span class="co">#&gt; 4          CP        GPCP   male</span></span>
+<span><span class="co">#&gt; 5         801         GPP   male</span></span>
+<span><span class="co">#&gt; 6         800         GPS   male</span></span></code></pre></div>
 <p>We can see the increase of females on the Senate along the
 legislatures:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
@@ -145,11 +139,8 @@ legislatures:</p>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_y_continuous</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span>from <span class="op">=</span> <span class="fl">0</span>, to <span class="op">=</span> <span class="fl">0.7</span>, by <span class="op">=</span> <span class="fl">.1</span><span class="op">)</span>,</span>
 <span>                       expand <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expansion.html" class="external-link">expansion</a></span><span class="op">(</span>add <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.01</span><span class="op">)</span><span class="op">)</span>, limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="cn">NA</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Ratio of women"</span>, x  <span class="op">=</span> <span class="st">"Legislatura"</span>, y <span class="op">=</span> <span class="st">"Ratio of women"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html" class="external-link">guides</a></span><span class="op">(</span>col <span class="op">=</span> <span class="cn">FALSE</span>, shape <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Warning: The `&lt;scale&gt;` argument of `guides()` cannot be `FALSE`. Use "none" instead as</span></span>
-<span><span class="co">#&gt; of ggplot2 3.3.4.</span></span></code></pre></div>
-<p><img src="senadoRES_files/figure-html/senadoras-1.png" width="700"></p>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Ratio of women"</span>, x  <span class="op">=</span> <span class="st">"Legislatura"</span>, y <span class="op">=</span> <span class="st">"Ratio of women"</span><span class="op">)</span></span></code></pre></div>
+<p><img src="senadoRES_files/figure-html/senadoras-1.png" width="2187.5"></p>
 </div>
 <div class="section level4">
 <h4 id="documents">Documents<a class="anchor" aria-label="anchor" href="#documents"></a>
@@ -394,46 +385,42 @@ onward</p>
 <code class="sourceCode R"><span><span class="va">s</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="fl">10</span><span class="op">:</span><span class="fl">14</span>, <span class="va">plenarias</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Warning in Sys.setlocale(category = "LC_TIME", locale = "es_ES.utf-8"): OS</span></span>
 <span><span class="co">#&gt; reports request to set locale to "es_ES.utf-8" cannot be honored</span></span>
-<span></span>
 <span><span class="co">#&gt; Warning in Sys.setlocale(category = "LC_TIME", locale = "es_ES.utf-8"): OS</span></span>
 <span><span class="co">#&gt; reports request to set locale to "es_ES.utf-8" cannot be honored</span></span>
-<span></span>
 <span><span class="co">#&gt; Warning in Sys.setlocale(category = "LC_TIME", locale = "es_ES.utf-8"): OS</span></span>
 <span><span class="co">#&gt; reports request to set locale to "es_ES.utf-8" cannot be honored</span></span>
-<span></span>
 <span><span class="co">#&gt; Warning in Sys.setlocale(category = "LC_TIME", locale = "es_ES.utf-8"): OS</span></span>
 <span><span class="co">#&gt; reports request to set locale to "es_ES.utf-8" cannot be honored</span></span>
-<span></span>
 <span><span class="co">#&gt; Warning in Sys.setlocale(category = "LC_TIME", locale = "es_ES.utf-8"): OS</span></span>
 <span><span class="co">#&gt; reports request to set locale to "es_ES.utf-8" cannot be honored</span></span>
 <span><span class="va">sessions</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/do.call.html" class="external-link">do.call</a></span><span class="op">(</span><span class="va">rbind</span>, <span class="va">s</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">sessions</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_count.html" class="external-link">stat_sum</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">sesionLegislatura</span>, <span class="va">sesionHoraInicio</span>, </span>
 <span>                 fill <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html" class="external-link">after_stat</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>, geom <span class="op">=</span> <span class="st">"tile"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html" class="external-link">guides</a></span><span class="op">(</span>size <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html" class="external-link">guides</a></span><span class="op">(</span>size <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Hour of sessions"</span>, x <span class="op">=</span> <span class="st">"Legislature"</span>, y <span class="op">=</span> <span class="st">"Starting hour"</span>,</span>
 <span>         fill <span class="op">=</span> <span class="st">"Sessions"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_y_continuous</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">19</span><span class="op">)</span></span></code></pre></div>
-<p><img src="senadoRES_files/figure-html/plot-plenarias-1.png" width="700"></p>
+<p><img src="senadoRES_files/figure-html/plot-plenarias-1.png" width="2187.5"></p>
 <p>So most of the times they meet at the afternoon.</p>
 <p>If you want more detailed information of each session you can use the
 fichUrlDetalleSesion details:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">details</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/detalles.html">detalles</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"https://www.senado.es"</span>, <span class="va">sessions</span><span class="op">$</span><span class="va">fichUrlDetalleSesion</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">details</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/detalles.html">detalles</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"https://www.senado.es"</span>, <span class="va">sessions</span><span class="op">$</span><span class="va">fichUrlDetalleSesion</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">details</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"asunto_id"</span>, <span class="st">"asunto_hora_inicio"</span>, <span class="st">"asunto_hora_fin"</span>, <span class="st">"punto_literal"</span>, <span class="st">"intervencion_orador_desc"</span>, <span class="st">"intervencion_orador_idWeb"</span><span class="op">)</span><span class="op">]</span></span>
-<span><span class="co">#&gt;   asunto_id asunto_hora_inicio asunto_hora_fin                    punto_literal</span></span>
-<span><span class="co">#&gt; 1    147602              16:01           16:01                            Actas</span></span>
-<span><span class="co">#&gt; 2    147603              16:01           19:49 Proyectos y Proposiciones de Ley</span></span>
-<span><span class="co">#&gt; 3    147603              16:01           19:49 Proyectos y Proposiciones de Ley</span></span>
-<span><span class="co">#&gt; 4    147603              16:01           19:49 Proyectos y Proposiciones de Ley</span></span>
-<span><span class="co">#&gt; 5    147603              16:01           19:49 Proyectos y Proposiciones de Ley</span></span>
-<span><span class="co">#&gt;               intervencion_orador_desc intervencion_orador_idWeb</span></span>
-<span><span class="co">#&gt; 1                                 &lt;NA&gt;                      &lt;NA&gt;</span></span>
-<span><span class="co">#&gt; 2           GUERRERO ROSADO, PETRONILA                     15301</span></span>
-<span><span class="co">#&gt; 3 JULIOS REYES, MARÍA DEL MAR DEL PINO                     16165</span></span>
-<span><span class="co">#&gt; 4     SANTOS FERNÁNDEZ, ROSARIO ISABEL                     15235</span></span>
-<span><span class="co">#&gt; 5  YANGUAS FERNÁNDEZ, FRANCISCO JAVIER                     15406</span></span></code></pre></div>
+<span><span class="co">#&gt;   asunto_id asunto_hora_inicio asunto_hora_fin punto_literal</span></span>
+<span><span class="co">#&gt; 1    146024              16:01           16:02          &lt;NA&gt;</span></span>
+<span><span class="co">#&gt; 2    146026              16:02           16:02          &lt;NA&gt;</span></span>
+<span><span class="co">#&gt; 3    146028              16:03           16:03         Actas</span></span>
+<span><span class="co">#&gt; 4    146029              16:03           16:03     Preguntas</span></span>
+<span><span class="co">#&gt; 5    146030              16:03           16:11     Preguntas</span></span>
+<span><span class="co">#&gt;   intervencion_orador_desc intervencion_orador_idWeb</span></span>
+<span><span class="co">#&gt; 1  AGORRIA MARTÍNEZ, IDOIA                     16825</span></span>
+<span><span class="co">#&gt; 2  URQUIZU SANCHO, IGNACIO                     16845</span></span>
+<span><span class="co">#&gt; 3                     &lt;NA&gt;                      &lt;NA&gt;</span></span>
+<span><span class="co">#&gt; 4                     &lt;NA&gt;                      &lt;NA&gt;</span></span>
+<span><span class="co">#&gt; 5      LÓPEZ ÁGUEDA, ÓSCAR                     15026</span></span></code></pre></div>
 <p>This will help you know who talked, how long about which topics and
 which documents got referenced.</p>
 </div>
@@ -493,48 +480,48 @@ approved):</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lex14</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/leyes.html">leyes</a></span><span class="op">(</span><span class="fl">14</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">lex14</span><span class="op">)</span></span>
-<span><span class="co">#&gt;                                                                                                                                                                                                                                                                                                           titulo</span></span>
-<span><span class="co">#&gt; 1                                                                                                                                                                                                             Proyecto de Ley de Cooperación para el Desarrollo Sostenible y la Solidaridad Global. (621/000068)</span></span>
-<span><span class="co">#&gt; 2                                                                                                                                                                                                                                                      Ley 39/2022, de 30 de diciembre, del Deporte (621/000065)</span></span>
-<span><span class="co">#&gt; 3                                                         Ley 37/2022, de 27 de diciembre, por la que se modifica la Ley 28/2010, de 16 de julio, del régimen de cesión de tributos del Estado a la Comunidad Autónoma de las Illes Balears y de fijación del alcance y condiciones de dicha cesión (621/000074)</span></span>
-<span><span class="co">#&gt; 4 Ley 38/2022, de 27 de diciembre, para el establecimiento de gravámenes temporales energético y de entidades de crédito y establecimientos financieros de crédito y por la que se crea el impuesto temporal de solidaridad de las grandes fortunas, y se modifican determinadas normas tributarias (624/000018)</span></span>
-<span><span class="co">#&gt; 5                                                                   Ley 36/2022, de 27 de diciembre, por la que se modifica la Ley 17/2010, de 16 de julio, del régimen de cesión de tributos del Estado a la Comunidad Autónoma de Galicia y de fijación del alcance y condiciones de dicha cesión (621/000073)</span></span>
-<span><span class="co">#&gt; 6                                                                            Ley 35/2022, de 27 de diciembre, por la que se modifica la Ley 23/2010, de 16 de julio, del régimen de cesión de tributos del Estado a la Comunitat Valenciana y de fijación del alcance y condiciones de dicha cesión (621/000072)</span></span>
+<span><span class="co">#&gt;                                                                                                                                                                                                                                                                                                                                                                                                                            titulo</span></span>
+<span><span class="co">#&gt; 1                                                                   Ley 13/2023, de 24 de mayo, por la que se modifican la Ley 58/2003, de 17 de diciembre, General Tributaria, en transposición de la Directiva (UE) 2021/514 del Consejo de 22 de marzo de 2021, por la que se modifica la Directiva 2011/16/UE relativa a la cooperación administrativa en el ámbito de la fiscalidad, y otras normas tributarias (621/000088)</span></span>
+<span><span class="co">#&gt; 2                                                                                                                                                                                                                                                                                                                                                           Ley 12/2023, de 24 de mayo, por el derecho a la vivienda (621/000089)</span></span>
+<span><span class="co">#&gt; 3 Ley 11/2023, de 8 de mayo, de trasposición de Directivas de la Unión Europea en materia de accesibilidad de determinados productos y servicios, migración de personas altamente cualificadas, tributaria y digitalización de actuaciones notariales y registrales; y por la que se modifica la Ley 12/2011, de 27 de mayo, sobre responsabilidad civil por daños nucleares o producidos por materiales radiactivos (621/000087)</span></span>
+<span><span class="co">#&gt; 4                                                                                                                                                                                                                                                                              Ley 10/2023, de 3 de abril, por la que se aprueba la metodología de señalamiento del cupo del País Vasco para el quinquenio 2022-2026 (621/000086)</span></span>
+<span><span class="co">#&gt; 5                                                                                                                                                                                                                                             Ley 9/2023, de 3 de abril, por la que se modifica la Ley 12/2002, de 23 de mayo, por la que se aprueba el Concierto Económico con la Comunidad Autónoma del País Vasco (621/000085)</span></span>
+<span><span class="co">#&gt; 6                                                                                                                                                                                                                                  Ley 8/2023, de 3 de abril, por la que se modifica la Ley 28/1990, de 26 de diciembre, por la que se aprueba el Convenio Económico entre el Estado y la Comunidad Foral de Navarra (621/000084)</span></span>
 <span><span class="co">#&gt;                                                                                                             urlFichaLey</span></span>
-<span><span class="co">#&gt; 1 https://www.senado.es/web/actividadparlamentaria/iniciativas/detalleiniciativa/index.html?legis=14&amp;id1=621&amp;id2=000068</span></span>
-<span><span class="co">#&gt; 2 https://www.senado.es/web/actividadparlamentaria/iniciativas/detalleiniciativa/index.html?legis=14&amp;id1=621&amp;id2=000065</span></span>
-<span><span class="co">#&gt; 3 https://www.senado.es/web/actividadparlamentaria/iniciativas/detalleiniciativa/index.html?legis=14&amp;id1=621&amp;id2=000074</span></span>
-<span><span class="co">#&gt; 4 https://www.senado.es/web/actividadparlamentaria/iniciativas/detalleiniciativa/index.html?legis=14&amp;id1=624&amp;id2=000018</span></span>
-<span><span class="co">#&gt; 5 https://www.senado.es/web/actividadparlamentaria/iniciativas/detalleiniciativa/index.html?legis=14&amp;id1=621&amp;id2=000073</span></span>
-<span><span class="co">#&gt; 6 https://www.senado.es/web/actividadparlamentaria/iniciativas/detalleiniciativa/index.html?legis=14&amp;id1=621&amp;id2=000072</span></span>
-<span><span class="co">#&gt;   anio                                       boe</span></span>
-<span><span class="co">#&gt; 1 9999        Pendiente de publicación en el BOE</span></span>
-<span><span class="co">#&gt; 2 2022 B.O.E. nº 314, de 31 de Diciembre de 2022</span></span>
-<span><span class="co">#&gt; 3 2022 B.O.E. nº 311, de 28 de Diciembre de 2022</span></span>
-<span><span class="co">#&gt; 4 2022 B.O.E. nº 311, de 28 de Diciembre de 2022</span></span>
-<span><span class="co">#&gt; 5 2022 B.O.E. nº 311, de 28 de Diciembre de 2022</span></span>
-<span><span class="co">#&gt; 6 2022 B.O.E. nº 311, de 28 de Diciembre de 2022</span></span>
+<span><span class="co">#&gt; 1 https://www.senado.es/web/actividadparlamentaria/iniciativas/detalleiniciativa/index.html?legis=14&amp;id1=621&amp;id2=000088</span></span>
+<span><span class="co">#&gt; 2 https://www.senado.es/web/actividadparlamentaria/iniciativas/detalleiniciativa/index.html?legis=14&amp;id1=621&amp;id2=000089</span></span>
+<span><span class="co">#&gt; 3 https://www.senado.es/web/actividadparlamentaria/iniciativas/detalleiniciativa/index.html?legis=14&amp;id1=621&amp;id2=000087</span></span>
+<span><span class="co">#&gt; 4 https://www.senado.es/web/actividadparlamentaria/iniciativas/detalleiniciativa/index.html?legis=14&amp;id1=621&amp;id2=000086</span></span>
+<span><span class="co">#&gt; 5 https://www.senado.es/web/actividadparlamentaria/iniciativas/detalleiniciativa/index.html?legis=14&amp;id1=621&amp;id2=000085</span></span>
+<span><span class="co">#&gt; 6 https://www.senado.es/web/actividadparlamentaria/iniciativas/detalleiniciativa/index.html?legis=14&amp;id1=621&amp;id2=000084</span></span>
+<span><span class="co">#&gt;   anio                                  boe</span></span>
+<span><span class="co">#&gt; 1 2023 B.O.E. nº 124, de 25 de Mayo de 2023</span></span>
+<span><span class="co">#&gt; 2 2023 B.O.E. nº 124, de 25 de Mayo de 2023</span></span>
+<span><span class="co">#&gt; 3 2023  B.O.E. nº 110, de 9 de Mayo de 2023</span></span>
+<span><span class="co">#&gt; 4 2023  B.O.E. nº 80, de 4 de Abril de 2023</span></span>
+<span><span class="co">#&gt; 5 2023  B.O.E. nº 80, de 4 de Abril de 2023</span></span>
+<span><span class="co">#&gt; 6 2023  B.O.E. nº 80, de 4 de Abril de 2023</span></span>
 <span><span class="co">#&gt;                                                     urlBoe</span></span>
-<span><span class="co">#&gt; 1                                                         </span></span>
-<span><span class="co">#&gt; 2 http://www.boe.es/diario_boe/txt.php?id=BOE-A-2022-24430</span></span>
-<span><span class="co">#&gt; 3 http://www.boe.es/diario_boe/txt.php?id=BOE-A-2022-22683</span></span>
-<span><span class="co">#&gt; 4 http://www.boe.es/diario_boe/txt.php?id=BOE-A-2022-22684</span></span>
-<span><span class="co">#&gt; 5 http://www.boe.es/diario_boe/txt.php?id=BOE-A-2022-22682</span></span>
-<span><span class="co">#&gt; 6 http://www.boe.es/diario_boe/txt.php?id=BOE-A-2022-22681</span></span>
-<span><span class="co">#&gt;                                                                                                                                bloquesTematicos</span></span>
-<span><span class="co">#&gt; 1                                                                    TRABAJO. POLÍTICA SOCIAL, POLÍTICA INTERNACIONAL, MEDIO AMBIENTE, SOCIEDAD</span></span>
-<span><span class="co">#&gt; 2 ADMINISTRACIONES PÚBLICAS, SOCIEDAD, EDUCACIÓN, INDUSTRIA. COMERCIO. SERVICIOS, TRABAJO. POLÍTICA SOCIAL, ORGANIZACIÓN TERRITORIAL DEL ESTADO</span></span>
-<span><span class="co">#&gt; 3                                                                                       ORGANIZACIÓN TERRITORIAL DEL ESTADO, ECONOMÍA. HACIENDA</span></span>
-<span><span class="co">#&gt; 4                                                                            ECONOMÍA. HACIENDA, MEDIO AMBIENTE, INDUSTRIA. COMERCIO. SERVICIOS</span></span>
-<span><span class="co">#&gt; 5                                                                                       ECONOMÍA. HACIENDA, ORGANIZACIÓN TERRITORIAL DEL ESTADO</span></span>
-<span><span class="co">#&gt; 6                                                                                       ECONOMÍA. HACIENDA, ORGANIZACIÓN TERRITORIAL DEL ESTADO</span></span>
+<span><span class="co">#&gt; 1 http://www.boe.es/diario_boe/txt.php?id=BOE-A-2023-12204</span></span>
+<span><span class="co">#&gt; 2 http://www.boe.es/diario_boe/txt.php?id=BOE-A-2023-12203</span></span>
+<span><span class="co">#&gt; 3 http://www.boe.es/diario_boe/txt.php?id=BOE-A-2023-11022</span></span>
+<span><span class="co">#&gt; 4  http://www.boe.es/diario_boe/txt.php?id=BOE-A-2023-8456</span></span>
+<span><span class="co">#&gt; 5  http://www.boe.es/diario_boe/txt.php?id=BOE-A-2023-8455</span></span>
+<span><span class="co">#&gt; 6  http://www.boe.es/diario_boe/txt.php?id=BOE-A-2023-8454</span></span>
+<span><span class="co">#&gt;                                                                         bloquesTematicos</span></span>
+<span><span class="co">#&gt; 1    ADMINISTRACIONES PÚBLICAS, JUSTICIA, ECONOMÍA. HACIENDA, INFORMACIÓN Y COMUNICACIÓN</span></span>
+<span><span class="co">#&gt; 2 URBANISMO. VIVIENDA, JUSTICIA, TRABAJO. POLÍTICA SOCIAL, DERECHO Y LIBERTADES PÚBLICAS</span></span>
+<span><span class="co">#&gt; 3                     JUSTICIA, INDUSTRIA. COMERCIO. SERVICIOS, TRABAJO. POLÍTICA SOCIAL</span></span>
+<span><span class="co">#&gt; 4                 UNIÓN EUROPEA, ECONOMÍA. HACIENDA, ORGANIZACIÓN TERRITORIAL DEL ESTADO</span></span>
+<span><span class="co">#&gt; 5                 UNIÓN EUROPEA, ORGANIZACIÓN TERRITORIAL DEL ESTADO, ECONOMÍA. HACIENDA</span></span>
+<span><span class="co">#&gt; 6                 ORGANIZACIÓN TERRITORIAL DEL ESTADO, ECONOMÍA. HACIENDA, UNIÓN EUROPEA</span></span>
 <span><span class="co">#&gt;   numLey tipo</span></span>
-<span><span class="co">#&gt; 1         Ley</span></span>
-<span><span class="co">#&gt; 2     39  Ley</span></span>
-<span><span class="co">#&gt; 3     37  Ley</span></span>
-<span><span class="co">#&gt; 4     38  Ley</span></span>
-<span><span class="co">#&gt; 5     36  Ley</span></span>
-<span><span class="co">#&gt; 6     35  Ley</span></span></code></pre></div>
+<span><span class="co">#&gt; 1     13  Ley</span></span>
+<span><span class="co">#&gt; 2     12  Ley</span></span>
+<span><span class="co">#&gt; 3     11  Ley</span></span>
+<span><span class="co">#&gt; 4     10  Ley</span></span>
+<span><span class="co">#&gt; 5      9  Ley</span></span>
+<span><span class="co">#&gt; 6      8  Ley</span></span></code></pre></div>
 <div class="section level4">
 <h4 id="organization-chart">Organization chart<a class="anchor" aria-label="anchor" href="#organization-chart"></a>
 </h4>
@@ -610,7 +597,7 @@ current</p>
   <div class="container">
     <div class="row">
       <div class="col-md text-center text-lg-start">
-        <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
+        <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.8.</p>
       </div>
       <div class="col-md offset-md-4 text-center text-lg-start">
       <p>Template <a href="https://github.com/ropenspain/rostemplate/" class="external-link">rostemplate</a> by <a href="https://github.com/dieghernan/" class="external-link">dieghernan</a>, based on <a href="https://bootstrapious.com/" class="external-link">Bootstrapious</a>.
