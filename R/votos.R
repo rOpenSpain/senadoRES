@@ -59,7 +59,7 @@ sesion <- function(x) {
 votoSenador <- function(x){
     votoSenador <- xml_find_all(x, ".//VotoSenador")
     l <- lapply(votoSenador, xml2matrix)
-    df <- do.call(rbind, l)
+    do.call(rbind, l)
 }
 
 votacion <- function(x) {

@@ -92,10 +92,10 @@ check_code <- function(id) {
         stop("Missing the session number.", call. = FALSE)
     }
 
-    if (ids[2] == "D" & length(ids) < 5) {
+    if (ids[2] == "D" && length(ids) < 5) {
         stop("Missing the document reference", call. = FALSE)
     }
-    if (ids[2] == "D" & length(ids) == 5  & !is_numeric(ids[5])) {
+    if (ids[2] == "D" && length(ids) == 5  & !is_numeric(ids[5])) {
         stop("Document reference should be numeric", call. = FALSE)
     }
 
