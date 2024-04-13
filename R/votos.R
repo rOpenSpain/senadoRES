@@ -7,8 +7,10 @@
 #' @returns A votos class with information about who voted what.
 #' @export
 #' @examples
+#' \donttest{
 #' votos_64 <- votos(14, 64)
 #' votos_3_8 <- votos(14, 3, 8)
+#' }
 votos <- function(legislatura, sesion, votacion = NULL) {
     # if (!endsWith(x, ".xml")) {
     #     url <- paste0(force(BASE_URL), x)

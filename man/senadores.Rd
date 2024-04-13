@@ -4,7 +4,10 @@
 \alias{senadores}
 \title{Senators since 1977}
 \usage{
-senadores()
+senadores(legislatura = 12:14)
+}
+\arguments{
+\item{legislatura}{A numeric value above 12 (No information prior to then).}
 }
 \value{
 A \code{data.frame} with the information available.
@@ -14,6 +17,6 @@ Past and current appointed members.
 }
 \examples{
 if (interactive()) {
-    head(senadores())
+    head(senadores(12))
 }
 }

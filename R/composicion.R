@@ -33,26 +33,40 @@ grupos <- function(legislatura){
 #'
 #' Past and current appointed members.
 #' @return A `data.frame` with the information available.
+#' @inheritParams plenarias
 #' @importFrom xml2 read_xml
 #' @importFrom xml2 xml_text
 #' @importFrom xml2 xml_find_all
 #' @export
 #' @examples
 #' if (interactive()) {
-#'     head(senadores())
+#'     head(senadores(12))
 #' }
-senadores <- function() {
-    x <- read_xml(compose_url(tipoFich = 10))
-    s <- data.frame(nombre = xml_text(xml_find_all(x, "//senador/nombre")),
-                    apellidos = xml_text(xml_find_all(x, "//senador/apellidos")),
-                    legislatura = as.numeric(xml_text(xml_find_all(x, "//senador/legislatura"))),
-                    ultCredencial = xml_text(xml_find_all(x, "//senador/ultCredencial")),
-                    procedTipo = xml_text(xml_find_all(x, "//senador/procedTipo")),
-                    procedLiteral = xml_text(xml_find_all(x, "//senador/procedLiteral")),
-                    procedLugar = xml_text(xml_find_all(x, "//senador/procedLugar")),
-                    grupoCod = xml_text(xml_find_all(x, "//senador/grupoCod")),
-                    grupoSiglas = xml_text(xml_find_all(x, "//senador/grupoSiglas")),
-                    grupoNombre = xml_text(xml_find_all(x, "//senador/grupoNombre")))
+senadores <- function(legislatura = 12:14) {
+    stopifnot(!is.numeric(legislatura) || all(legislatura >= 0) || !is.null(legislatura))
+    senad_list <- lapply(legislatura, senadores_legis)
+    senad_df <- do.call(rbind, senad_list)
+    # The API return the same data twice
+    # Even there is a person LÓPEZ CONDÉS Legis = 3, ultCredencial 284 that is
+    # returned with accent and without it.
+    unique(senad_df)
+}
+
+# Converted from senadores, iterator
+senadores_legis <- function(legislatura) {
+    x <- read_xml(compose_url(tipoFich = 10, legis = legislatura))
+    s <- data.frame(
+        nombre = xml_text(xml_find_all(x, "//senador/nombre")),
+        apellidos = xml_text(xml_find_all(x, "//senador/apellidos")),
+        legislatura = as.numeric(xml_text(xml_find_all(x, "//senador/legislatura"))),
+        ultCredencial = xml_text(xml_find_all(x, "//senador/ultCredencial")),
+        procedTipo = xml_text(xml_find_all(x, "//senador/procedTipo")),
+        procedLiteral = xml_text(xml_find_all(x, "//senador/procedLiteral")),
+        procedLugar = xml_text(xml_find_all(x, "//senador/procedLugar")),
+        grupoCod = xml_text(xml_find_all(x, "//senador/grupoCod")),
+        grupoSiglas = xml_text(xml_find_all(x, "//senador/grupoSiglas")),
+        grupoNombre = xml_text(xml_find_all(x, "//senador/grupoNombre"))
+    )
     s$procedLugar <- gsub(pattern = ".+: ", "", s$procedLugar)
     s$grupoCod <- gsub(pattern = ".+: ", "", s$grupoCod)
     s$sex <- NA

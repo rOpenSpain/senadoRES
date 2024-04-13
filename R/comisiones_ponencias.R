@@ -1,7 +1,7 @@
 #' *Comisiones*
 #'
 #' Look up the *comisiones* and *ponencias* of a legislature.
-#' Rellevant to know the code of the work groups.
+#' Relevant to know the code of the work groups.
 #' @inheritParams plenarias
 #' @return A `data.frame` with the *comisiones* and *ponencias* of that legislature.
 #' @export

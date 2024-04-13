@@ -14,7 +14,7 @@ A data.frame with a summary of the session, date, documents, authors.
 }
 \description{
 Returns the summary of a session in a tidy way.
-If multiple autors are involved in a disposicion and multiple documents they
+If multiple authors are involved in a disposition and multiple documents they
 get mixed.
 }
 \examples{
