@@ -1,5 +1,10 @@
 template:
   bootstrap: 5
   package: rostemplate
+  bootstrap: 5
+  opengraph:
+    twitter:
+      creator: "@Lluis_Revilla"
+      card: summary_large_image
 development:
   mode: auto
