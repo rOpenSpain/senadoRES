@@ -11,9 +11,9 @@ Authors@R:
 Description: Retrieve and parse information about the Spanish
     Congress.
 License: MIT + file LICENSE
-URL: https://llrs.github.io/senadoRES,
-    https://github.com/llrs/senadoRES
-BugReports: https://github.com/llrs/senadoRES/issues
+URL: https://rOpenSpain.github.io/senadoRES,
+    https://github.com/rOpenSpain/senadoRES
+BugReports: https://github.com/rOpenSpain/senadoRES/issues
 Depends: 
     R (>= 3.6)
 Imports: 
